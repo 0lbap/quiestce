@@ -1,133 +1,307 @@
 /* CSS de la vue */
 
-body{
-    background-color: rgb(218, 218, 218);
-    color: rgb(41, 41, 41);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+body {
+  background-color: rgb(218, 218, 218);
+  color: rgb(41, 41, 41);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#main{
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    width: 100vw;
-    height: 100vh;
+#main {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100vw;
+  height: 100vh;
 }
 
-#dialog{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 60vw;
-    height: 60vh;
-    text-align: center;
-    transform: translate(-50%,-50%);
+#dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60vw;
+  height: 60vh;
+  text-align: center;
+  transform: translate(-50%, -50%);
 }
 
-#message{
-    position: absolute;
-    top: 1em;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 1em;
-    box-shadow: 4px 4px black;
+#message {
+  position: absolute;
+  top: 1em;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1em;
+  box-shadow: 4px 4px black;
+  display: none;
 }
 
-.J1{
-    background-color: #ff3c28; /* neon red */
-    color: white;
+.J1 {
+  background-color: #0ab9e6; /* neon red */
+  color: white;
 }
 
-.J2{
-    background-color: #0ab9e6; /* neon blue */
-    color: white;
+.J2 {
+  background-color: #ff3c28; /* neon blue */
+  color: white;
 }
 
-#main h1{
-    font-family: 'Koulen','Comfortaa';
+#main h1 {
+  font-family: "Koulen", "Comfortaa";
 }
 
-button{
-    border: none;
-    box-shadow: 4px 4px black;
-    background-color: white;
-    font-size: 1em;
-    cursor: pointer;
-    padding: 0.5em;
-    transition: 0.2s ease;
+button {
+  border: none;
+  box-shadow: 4px 4px black;
+  background-color: white;
+  font-size: 1em;
+  cursor: pointer;
+  padding: 0.5em;
+  transition: 0.2s ease;
 }
 
-button:hover{
-    box-shadow: 0px 0px black;
-    transition: 0.2s ease;
+.disabled{
+  border: none;
+  box-shadow: 0px 0px black;
+  background-color: #eaeaea;
+  font-size: 1em;
+  cursor: not-allowed;
+  padding: 0.5em;
+  transition: 0.2s ease;
 }
 
-input[type="text"]:focus{
-    box-shadow: 0px 0px black;
-    transition: 0.2s ease;
-    outline: none;
+button:hover {
+  box-shadow: 0px 0px black;
+  transition: 0.2s ease;
 }
 
-input[type="text"]{
-    border: none;
-    box-shadow: 4px 4px black;
-    font-size: 1em;
-    padding: 0.5em;
+input[type="text"]:focus {
+  box-shadow: 0px 0px black;
+  transition: 0.2s ease;
+  outline: none;
 }
 
-input[type="radio"]{
-    margin: 0.3em;
+input[type="text"] {
+  border: none;
+  box-shadow: 4px 4px black;
+  font-size: 1em;
+  padding: 0.5em;
 }
 
-select{
-    border: none;
-    background-color: white;
-    box-shadow: 4px 4px black;
-    font-size: 1em;
-    padding: 0.5em;
+input[type="radio"] {
+  margin: 0.3em;
 }
 
-.spacer{
-    margin: 0.5em;
+select {
+  border: none;
+  background-color: white;
+  box-shadow: 4px 4px black;
+  font-size: 1em;
+  padding: 0.5em;
 }
 
-.bg-info{
-    background-color: rgb(138, 222, 248);
+.spacer {
+  margin: 0.5em;
 }
 
-.bg-alert{
-    background-color: rgb(247, 125, 125);
+.bg-info {
+  background-color: rgb(138, 222, 248);
 }
 
-.bg-warning{
-    background-color: rgb(255, 232, 129);
+.bg-alert {
+  background-color: rgb(247, 125, 125);
 }
 
-#jeu{
-    position: relative;
-    display: grid;
+.bg-warning {
+  background-color: rgb(255, 232, 129);
 }
 
-#plateau-container{
+#jeu {
+  position: relative;
+  display: grid;
+}
+
+
+/* Interface jeu responsive */
+#plateau-container {
+  margin-left: 1.5em;
+  grid-column-start: 1;
+  grid-column-end: 12;
+}
+
+#actions {
+  margin-left: 1.5em;
+  grid-column-start: 1;
+  grid-column-end: 12;
+}
+
+@media (min-width: 800px) {
+  #plateau-container {
+    margin-left: 3em;
     grid-column-start: 1;
     grid-column-end: 8;
-    height: 100vh;
-}
-
-#actions{
+  }
+  
+  #actions {
+    margin-left: 0em;
     grid-column-start: 8;
     grid-column-end: 12;
-    height: 100vh;
+  }
 }
 
-#btn-poser_question{
-    position: absolute;
-    bottom: 1em;
-    right: 1em;
+
+#btn-poser_question {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
 }
 
-#home-icon, #home-icon:visited{
-    position: absolute;
-    color: black;
-    margin: 0.5em;
+#home-icon,#home-icon:visited {
+  position: absolute;
+  color: black;
+  margin: 0.5em;
+}
+
+#loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 4px solid rgb(41, 41, 41);
+  animation: spin 2s linear infinite;
+}
+
+#question {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 90vh;
+  transform: translate(-50%,-50%);
+  width: 60vw;
+  text-align: center;
+}
+
+@keyframes spin {
+  0% {
+    transform: translateX(-1000%) rotate(0deg) scale(0);
+  }
+  100% {
+    transform: translateX(1000%) rotate(360deg) scale(100);
+  }
+}
+
+#lignesContainer {
+  width: fit-content;
+  text-align: right;
+  display: inline-block;
+}
+
+.ligneQuestion {
+  position: relative;
+  text-align: right;
+  padding: 1em;
+}
+
+.btn-suppr_ligne {
+  background-color: red;
+  position: absolute;
+  right: -10%;
+}
+
+.personnage img {
+  width: 100%;
+  height: 100%;
+}
+
+#plateau {
+  display: grid;
+  grid-template-columns: repeat(3,8em);
+  gap: 2em 1em;
+}
+
+@media (min-width: 600px) {
+  #plateau {
+    display: grid;
+    grid-template-columns: repeat(4,8em);
+  }
+}
+
+@media (min-width: 1000px) {
+  #plateau {
+    display: grid;
+    grid-template-columns: repeat(5,8em);
+  }
+}
+
+.personnage {
+  position: relative;
+  width: 8em;
+  height: 9em;
+  transform-style: preserve-3d;
+  transition: 0.8s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border-radius: 0.5em;
+}
+
+.nom_perso {
+  position: absolute;
+  bottom: -35%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-shadow: white 0em 0.05em 0.2em;
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 0.5em;
+}
+
+.back{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotateY(180deg);
+}
+
+.back.J1{
+  background-image: url("/public/logoBlue.png");
+}
+
+.back.J2{
+  background-image: url("/public/logoRed.png");
+}
+
+.hidden {
+  transform: rotateY(180deg);
+}
+
+/* .personnage {
+  background-image: url("/public/logoRed.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.personnage.J1 {
+  background-image: url("/public/logoRed.png");
+}
+
+.personnage.J2 {
+  background-image: url("/public/logoBlue.png");
+} */
+
+#btn-sauver {
+  text-decoration: none;
+}
+
+#btn-abandonner {
+  text-decoration: none;
+  color: red;
 }
