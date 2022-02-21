@@ -1,38 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="public/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Qui est-ce ?</title>
+
     <!-- Import des scripts js -->
-    <script src="js/Attribut.js"></script>
-    <script src="js/Fbf.js"></script>
-    <script src="js/Personnage.js"></script>
-    <script src="js/Question.js"></script>
-    <script src="js/Partie.js"></script>
-    <script src="js/Joueur.js"></script>
-    <script src="js/Plateau.js"></script>
-    <script src="js/vue.js"></script>
-    <script src="js/modele.js"></script>
-</head>
-<body class="">
-    <!-- classe J1 ou J2 selon le code joueur -->
+    <script src="public/vue.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="public/modele.js"></script>
+    
+  </head>
+  <body class=""> <!-- classe J1 ou J2 selon le code joueur -->
     <div id="main">
-        <a id="home-icon" href="/index.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" class="feather feather-home">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-            </svg></a>
-        <div id="message"></div>
-        <div id="dialog"></div>
-        <div id="jeu"></div>
-        <div id="question"></div>
+      <a id="home-icon" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a>
+      <div id="message"></div>
+      <div id="dialog"><div id="loader">?</div><h1>Chargement...</h1></div>
+      <div id="jeu"></div>
+      <div id="question"></div>
     </div>
-</body>
+  </body>
 </html>
