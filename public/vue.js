@@ -13,6 +13,7 @@ const ecran = {
   plateau: "plateau",
   new_question: "new_question",
   new_devine: "new_devine",
+  evaluation: "evaluation",
   reponse: "reponse",
   winner: "winner",
 };
@@ -41,6 +42,10 @@ function afficherEcran(nomEcran) {
       html += '<input type="text" id="pseudo" placeholder="mon_pseudo_cool" maxlength="20">';
       html += '<span class="spacer"></span>';
       html += '<button id="btn-suivant">OK</button>';
+      html += '<br><br>';
+      html += '<a href="/magasin" target="_blank">Magasin de plateaux</a>';
+      html += '<br>';
+      html += '<a href="/generateur" target="_blank" class="text-gray">Générateur de plateaux (fonctionnel mais WIP)</a>';
       $("#dialog").append(html);
       $("#dialog").show();
       break;
@@ -48,9 +53,11 @@ function afficherEcran(nomEcran) {
       html += "<h1>Nouvelle partie</h1>";
       html += '<button id="btn-newgame_solo">Solo</button>';
       html += '<span class="spacer"></span>';
-      html += '<button id="btn-newgame_ordi">Contre l\'ordi</button>';
+      html += '<button id="btn-newgame_ordi">Contre l\'ordi <span class="text-red">(WIP)</span></button>';
       html += '<span class="spacer"></span>';
-      html += '<button id="btn-newgame_multi">Multijoueur</button>';
+      html += '<button id="btn-newgame_multi">Multijoueur <span class="text-red">(WIP)</span></button>';
+      html += '<br><br>';
+      html += '<button id="btn-retour">↩ Retour</button>';
       $("#dialog").append(html);
       $("#dialog").show();
       break;
@@ -58,13 +65,15 @@ function afficherEcran(nomEcran) {
       html += "<h1>Nouvelle partie</h1>";
       html += "<p>Mode :</p>";
       html +=
-        '<input type="radio" name="mode" id="mode_normal" value="Normal">';
-      html += '<label for="mode_normal">Normal</label>';
+        '<input type="radio" name="mode" id="mode_manuel" value="Normal">';
+      html += '<label for="mode_manuel">Manuel</label>';
       html += "<br>";
       html +=
         '<input type="radio" name="mode" id="mode_triche" value="Triche">';
       html += '<label for="mode_triche">Triche</label>';
       html += "<br><br>";
+      html += '<button id="btn-retour">↩ Retour</button>';
+      html += '<span class="spacer"></span>';
       html += '<button id="btn-suivant">Suivant</button>';
       $("#dialog").append(html);
       $("#dialog").show();
@@ -84,12 +93,14 @@ function afficherEcran(nomEcran) {
       html += '<label for="diff_difficile">Difficile</label>';
       html += "<p>Mode :</p>";
       html +=
-        '<input type="radio" name="mode" id="mode_normal" value="Normal">';
-      html += '<label for="mode_normal">Normal</label>';
+        '<input type="radio" name="mode" id="mode_manuel" value="Normal">';
+      html += '<label for="mode_manuel">Manuel</label>';
       html +=
         '<input type="radio" name="mode" id="mode_triche" value="Triche">';
       html += '<label for="mode_triche">Triche</label>';
       html += "<br><br>";
+      html += '<button id="btn-retour">↩ Retour</button>';
+      html += '<span class="spacer"></span>';
       html += '<button id="btn-suivant">Suivant</button>';
       $("#dialog").append(html);
       $("#dialog").show();
@@ -99,22 +110,30 @@ function afficherEcran(nomEcran) {
       html += '<button id="btn-join_game">Rejoindre</button>';
       html += '<span class="spacer"></span>';
       html += '<button id="btn-create_game">Créer</button>';
+      html += '<br><br>';
+      html += '<button id="btn-retour">↩ Retour</button>';
       $("#dialog").append(html);
       $("#dialog").show();
       break;
     case ecran.file_select:
       html += "<h1>Selection du fichier de plateau</h1>";
       html += '<input type="file" id="file-input" accept=".json">';
+      html += '<br><br>';
+      html += '<button id="btn-retour">↩ Retour</button>';
       html += '<span class="spacer"></span>';
       html += '<button id="btn-suivant">Suivant</button>';
+      html += '<br><br>';
+      html += '<a href="/magasin" target="_blank">Visiter le magasin de plateaux</a>';
       $("#dialog").append(html);
       $("#dialog").show();
       break;
     case ecran.join_game:
       html += "<h1>Entrez le code de la partie</h1>";
-      html += '<input type="text">';
+      html += '<input type="text" minlength="6" maxlength="6" placeholder="XXXXXX">';
       html += '<span class="spacer"></span>';
       html += '<button id="btn-join">Rejoindre</button>';
+      html += '<br><br>';
+      html += '<button id="btn-retour">↩ Retour</button>';
       $("#dialog").append(html);
       $("#dialog").show();
       break;
@@ -137,11 +156,14 @@ function afficherEcran(nomEcran) {
       html += "<br><br>";
       html += '<button id="btn-new_devine">Deviner !</button>';
       html += "<br><br>";
-      html += '<button id="btn-fin_tour">Finir le tour</button>';
-      html += "<br><br>";
-      html += '<a href="#" id="btn-sauver">Sauver la partie</a>';
+      html += '<a href="#" id="btn-sauver" class="text-green">Sauver la partie</a>';
       html += '<br>';
-      html += '<a href="#" id="btn-abandonner">Abandonner</a>';
+      html += '<a href="#" id="btn-abandonner" class="text-red">Abandonner</a>';
+      html += "<br><br>";
+      html += '<h1>Historique</h1>';
+      html += '<div id="tchat"></div>';
+      html += "<br><br>";
+      html += '<div id="sablier"><img src="https://cdn-icons-png.flaticon.com/512/3208/3208749.png"></img></div>';
       html += "</div>";
       $("#jeu").append(html);
       $("#jeu").show();
@@ -151,15 +173,28 @@ function afficherEcran(nomEcran) {
       html += '<div id="lignesContainer"></div>';
       html += '<br><br>';
       html += '<button id="btn-nouvelle_ligne">+ Nouvelle ligne</button>';
+      html += '<button id="btn-retour_plateau">↩ Retour</button>';
+      html += '<button id="btn-poser_question_auto">Question auto</button>';
       html += '<button id="btn-poser_question">Poser la question !</button>';
       $("#question").append(html);
       $("#question").show();
       break;
     case ecran.new_devine:
       html += "<h1>Ton personnage est...</h1>";
-      html += '<input id="prenom" type="text" placeholder="Prénom">';
+      html += '<div id="prenoms"></div>';
       html += '<span class="spacer"></span>';
       html += '<button id="btn-deviner">Deviner !</button>';
+      html += '<br><br>';
+      html += '<button id="btn-retour">↩ Retour</button>';
+      $("#dialog").append(html);
+      $("#dialog").show();
+      break;
+    case ecran.evaluation:
+      html += "<h1>La question est </h1>";
+      html += '<p>Elle concerne   personnages</p>';
+      html += '<button id="btn-retour">↩ Retour</button>';
+      html += '<span class="spacer"></span>';
+      html += '<button id="btn-suivant">Poser la question !</button>';      
       $("#dialog").append(html);
       $("#dialog").show();
       break;
@@ -205,20 +240,26 @@ function afficherMessage(message, type) {
 }
 
 function afficherPlateau(plateau,codeJ) {
+  console.log("affichage plateau " + codeJ);
   $("#plateau").empty();
+  let delay = 200;
   for (let i in plateau[codeJ].personnages) {
-    let html = '<div id="perso' + i + '" class="personnage ' + codeJ + '">';
+    let html = '<div id="perso' + i + '" class="personnage ' + codeJ + ' hidden">';
     html += '<div class="front">';
-    html += '<img src="' + plateau[codeJ].personnages[i].image + '" alt="' + plateau[codeJ].personnages[i].nom + '">'
+    html += '<img src="' + plateau[codeJ].personnages[i].img + '" alt="' + plateau[codeJ].personnages[i].nom + '">'
     html += '</div>';
     html += '<div class="back ' + codeJ + '">';
     html += '</div>';
-    html += '<p id="nom_perso' + i + '" class="nom_perso">' + plateau[codeJ].personnages[i].nom + '</p>';
+    html += '<p hidden id="nom_perso' + i + '" class="nom_perso">' + plateau[codeJ].personnages[i].nom + '</p>';
     html += '</div>';
     $("#plateau").append(html);
-    if(plateau[codeJ].personnages[i].visible == "false") {
-      $("#perso" + i).toggleClass("hidden");
-    }
+    setTimeout(function() {
+      if(plateau[codeJ].personnages[i].visible == "true") {
+          $("#perso" + i).removeClass("hidden");
+          $("#nom_perso" + i).removeAttr("hidden");
+        }
+    }, delay);
+    delay += 150;
     $("#perso" + i).on("click", () => {
       socket.emit("changer visibilite", {i,codeJ});
       if(!$("#perso" + i).hasClass("hidden")) {
