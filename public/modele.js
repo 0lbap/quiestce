@@ -2,6 +2,7 @@
 // Relie les boutons de l'interface avec les écrans et crée l'objet de config de la partie
 
 var config = {};
+var tchat = [];
 
 config.codeJ = "J1"; //par défaut, l'utilisateur est le J1
 
@@ -36,50 +37,58 @@ function refresh_screen() {
       break;
     case ecran.newgame:
       $("#btn-newgame_solo").on("click", () => {
-        config.type_de_partie = "solo";
+        config.type_de_partie = "Solo";
         ecran_actuel = ecran.newgame_solo;
         refresh_screen();
       });
       $("#btn-newgame_ordi").on("click", () => {
-        config.type_de_partie = "ordi";
+        config.type_de_partie = "Ordi";
         ecran_actuel = ecran.newgame_ordi;
         refresh_screen();
       });
       $("#btn-newgame_multi").on("click", () => {
-        config.type_de_partie = "multi";
+        config.type_de_partie = "Multi";
         config.mode_de_jeu = "Manuel";
         ecran_actuel = ecran.newgame_multi;
+        refresh_screen();
+      });
+      $("#btn-retour").on("click", () => {
+        ecran_actuel = ecran.pseudo;
         refresh_screen();
       });
       break;
     case ecran.newgame_solo:
       $("#btn-suivant").on("click", () => {
-        if ($("#mode_normal").prop("checked")) {
-          config.mode_de_jeu = "normal";
+        if ($("#mode_manuel").prop("checked")) {
+          config.mode_de_jeu = "Manuel";
           ecran_actuel = ecran.file_select;
           refresh_screen();
         } else if ($("#mode_triche").prop("checked")) {
-          config.mode_de_jeu = "triche";
+          config.mode_de_jeu = "Triche";
           ecran_actuel = ecran.file_select;
           refresh_screen();
         } else {
           afficherMessage("Sélectionnez un mode de jeu", typeMessage.alert);
         }
       });
+      $("#btn-retour").on("click", () => {
+        ecran_actuel = ecran.newgame;
+        refresh_screen();
+      });
       break;
     case ecran.newgame_ordi:
       $("#btn-suivant").on("click", () => {
         if (
-          ($("#mode_normal").prop("checked") ||
+          ($("#mode_manuel").prop("checked") ||
             $("#mode_triche").prop("checked")) &&
           ($("#diff_facile").prop("checked") ||
             $("#diff_normale").prop("checked") ||
             $("#diff_difficile").prop("checked"))
         ) {
-          if ($("#mode_normal").prop("checked")) {
-            config.mode_de_jeu = "normal";
+          if ($("#mode_manuel").prop("checked")) {
+            config.mode_de_jeu = "Manuel";
           } else if ($("#mode_triche").prop("checked")) {
-            config.mode_de_jeu = "triche";
+            config.mode_de_jeu = "Triche";
           }
           if ($("#diff_facile").prop("checked")) {
             config.difficulte = "facile";
@@ -98,6 +107,10 @@ function refresh_screen() {
           afficherMessage("Sélectionnez un mode de jeu et une difficulté", typeMessage.alert);
         }
       });
+      $("#btn-retour").on("click", () => {
+        ecran_actuel = ecran.newgame;
+        refresh_screen();
+      });
       break;
     case ecran.newgame_multi:
       $("#btn-join_game").on("click", () => {
@@ -106,6 +119,10 @@ function refresh_screen() {
       });
       $("#btn-create_game").on("click", () => {
         ecran_actuel = ecran.file_select;
+        refresh_screen();
+      });
+      $("#btn-retour").on("click", () => {
+        ecran_actuel = ecran.newgame;
         refresh_screen();
       });
       break;
@@ -117,53 +134,64 @@ function refresh_screen() {
       $("#btn-suivant").on("click", () => {
         if (config.json != undefined) {
           switch (config.type_de_partie) {
-            case "solo":
+            case "Solo":
               socket.emit("nouvelle partie solo", config);
               socket.on("partie créée", () => {
-                console.log("yo");
                 ecran_actuel = ecran.plateau;
                 refresh_screen();
                });
               break;
-            case "ordi":
+            case "Ordi":
               socket.emit("nouvelle partie ordi", config);
               socket.on("partie créée", () => {
                 ecran_actuel = ecran.plateau;
                 refresh_screen();
                });
               break;
-            case "multi":
+            case "Multi":
               socket.emit("nouvelle partie multi", config);
               ecran_actuel = ecran.waiting_room;
               refresh_screen();
               break;
           }
-          /*if (config.type_de_partie == "multi") {
-            ecran_actuel = ecran.waiting_room;
-            socket.emit("nouvelle partie", config);
-            refresh_screen();
-          } else {
-            socket.emit("nouvelle partie", config);
-            socket.on("partie créée", (partie) => {
-              ecran_actuel = ecran.plateau;
-              refresh_screen();
-             });
-          }*/
         } else {
           afficherMessage("Un fichier de plateau est requis", typeMessage.alert);
         }
       });
+      $("#btn-retour").on("click", () => {
+        switch (config.type_de_partie) {
+          case "Solo":
+            ecran_actuel = ecran.newgame_solo;
+            break;
+          case "Ordi":
+            ecran_actuel = ecran.newgame_ordi;
+            break;
+          case "Multi":
+            ecran_actuel = ecran.newgame_multi;
+            break;
+        }
+        refresh_screen();
+      });
       break;
     case ecran.join_game:
       $("#btn-join").on("click", () => {
-        socket.emit("rejoindre partie", config, $("input").val());
-        ecran_actuel = ecran.waiting_room;
+        let code = $("input").val();
+        if(code.length == 6 && code.match(/^[a-z0-9]+$/i)) {
+          socket.emit("rejoindre partie", config, $("input").val());
+          ecran_actuel = ecran.waiting_room;
+          refresh_screen();
+        } else {
+          afficherMessage("Le code tapé n'a pas le bon format", typeMessage.alert);
+        }
+      });
+      $("#btn-retour").on("click", () => {
+        ecran_actuel = ecran.newgame_multi;
         refresh_screen();
       });
       break;
     case ecran.waiting_room:
       socket.on("partie créée", (idP) => {
-        $("#id").append(idP);
+        $("#id").text(idP);
       });
       socket.on("partie rejointe", (partie) => {
         $("#id").remove();
@@ -191,7 +219,6 @@ function refresh_screen() {
         socket.emit("lancement partie");
       });
       socket.on("partie lancee", () =>{
-        console.log("recu");
         ecran_actuel = ecran.plateau;
         refresh_screen();
       })
@@ -203,18 +230,21 @@ function refresh_screen() {
       break;
     case ecran.plateau:
       socket.emit("requete plateau");
-      socket.on("reponse plateau", (data) => {
+      socket.once("reponse plateau", (data) => {
+        console.log(data);
         afficherPlateau(data,config.codeJ);
         if (data.Tour != config.codeJ.toLowerCase()) {
           $("#btn-new_question").addClass("disabled");
           $("#btn-new_question").attr("disabled","disabled");
           $("#btn-new_devine").addClass("disabled");
           $("#btn-new_devine").attr("disabled","disabled");
-          $("#btn-fin_tour").addClass("disabled");
-          $("#btn-fin_tour").attr("disabled","disabled");
           $("#tour").text("C'est au tour de ton adversaire...");
+          sendToTchat("Tour adverse.");
+          $("#sablier").show();
         } else {
           $("#tour").text("C'est a toi !");
+          sendToTchat("Votre tour.");
+          $("#sablier").hide();
         }
       });
       $("#btn-new_question").on("click", () => {
@@ -225,35 +255,31 @@ function refresh_screen() {
         ecran_actuel = ecran.new_devine;
         refresh_screen();
       });
-      // A SUPPR
-      $("#btn-fin_tour").on("click", () => {
-        // Changement du tour, on reste sur le même écran
-        // On désactive les boutons au tour de l'adversaire
-      });
       $("#btn-abandonner").on("click", () => {
         socket.emit("abandonner");
       });
-      $("#btn-sauver_partie").on("click")
-      socket.on("partie finie", (data) => {
-        if (config.type_de_partie == "solo") {
-          ecran_actuel = ecran.newgame;
-          refresh_screen();
-        } else {
-          config.gagnant = data;
-          ecran_actuel = ecran.winner;
-          refresh_screen();
-        }
+      $("#btn-sauver").on("click", () => {
+        socket.emit("requete plateau");
+        socket.once("reponse plateau", (plateau) => {
+          download("Partie du " + getDate(), JSON.stringify(plateau));
+        });
       });
       break;
     case ecran.new_question:
+      if(config.mode_de_jeu == "Triche") {
+        $("#btn-poser_question_auto").show();
+        $("#btn-poser_question").text("Vérifier la question !");
+      } else {
+        $("#btn-poser_question_auto").hide();
+      }
       let attributs_plateau;
       socket.emit("requete attributs plateau", config.idPartieJoueur);
-      socket.on("reponse attributs plateau", (data) => {
+      socket.once("reponse attributs plateau", (data) => {
         $("#lignesContainer").empty();
         attributs_plateau = data;
-        console.log(attributs_plateau);
+        //console.log(attributs_plateau);
         addLigneQuestion(0, attributs_plateau);
-      })
+      });
       let id = 1;
       $("#btn-nouvelle_ligne").on("click", () => {
         addLigneQuestion(id, attributs_plateau);
@@ -273,21 +299,71 @@ function refresh_screen() {
             attribut: {nom: $("#nom" + i).val(), valeur: $("#val" +i).val()}
           })
         }
-        socket.emit("pose question", (data));
-        ecran_actuel = ecran.reponse;
+        if(config.mode_de_jeu == "Triche") {
+          socket.emit("evaluation", (data));
+          ecran_actuel = ecran.evaluation;
+          refresh_screen();
+        } else {
+          socket.emit("pose question", (data));
+          ecran_actuel = ecran.reponse;
+          refresh_screen();
+        }
+      });
+      $("#btn-poser_question_auto").on("click", () => {
+        socket.emit("Question auto");
+        ecran_actuel = ecran.plateau;
+        refresh_screen();
+      });
+      $("#btn-retour_plateau").on("click", () => {
+        ecran_actuel = ecran.plateau;
         refresh_screen();
       });
       break;
     case ecran.new_devine:
+      socket.emit("requete prenoms plateau");
+      socket.once("reponse prenoms plateau", (prenoms) => {
+        $("#prenoms").empty();
+        addSelectVal(prenoms, "val0", "prenoms");
+      });
       $("#btn-deviner").on("click", () => {
-        // Envoie et traitement de la question
+        let data = {
+          connecteurs: [],
+          lignes: [
+            {
+              non: false,
+              attribut: {nom: "prenom", valeur: $("#val0").val()}
+            }
+          ]
+        };
+        console.log(data);
+        socket.emit("pose question", (data));
         ecran_actuel = ecran.reponse;
+        refresh_screen();
+      });
+      $("#btn-retour").on("click", () => {
+        ecran_actuel = ecran.plateau;
+        refresh_screen();
+      });
+      break;
+    case ecran.evaluation:
+      let question;
+      socket.once("rep eval", (data) => {
+        question = data[0];
+        $("h1").text("La question est " + data[3]);
+        $("p").text("Elle concerne " + data[2] + " personnages");
+      });
+      $("#btn-suivant").on("click", () => {
+        socket.emit("pose question", (question));
+        ecran_actuel = ecran.reponse;
+        refresh_screen();
+      });
+      $("#btn-retour").on("click", () => {
+        ecran_actuel = ecran.new_question;
         refresh_screen();
       });
       break;
     case ecran.reponse:
-      // Afficher la réponse (vrai ou faux)
-      socket.on("reponse question", (reponse) => {
+      socket.once("reponse question", (reponse) => {
         if(reponse == true) {
           $("h1").text("C'est vrai !");
         } else {
@@ -300,15 +376,15 @@ function refresh_screen() {
       });
       break;
     case ecran.winner:
-      // Afficher le gagnant
-      if(config.type_de_partie == "ordi") {
+      if(config.type_de_partie == "Ordi") {
         $("#winner").text("L'ordi a gagne !");
       } else {
         $("#winner").text(config.gagnant + " a gagne !");
       }
       $("#btn-suivant").on("click", () => {
-        ecran_actuel = ecran.newgame;
-        refresh_screen();
+        /*ecran_actuel = ecran.newgame;
+        refresh_screen();*/
+        location.reload();
       });
       break;
   }
@@ -328,6 +404,71 @@ function readSingleFile(file) {
   reader.readAsText(file);
 }
 
+function download(filename, text) {
+  var element = document.createElement('a');
+  
+  element.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename + ".json");
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
+function getDate() {
+  let d = new Date();
+  let res = "";
+  if(d.getDate() < 10) {
+    res += "0";
+  }
+  res += d.getDate() + "-";
+  if((d.getMonth() + 1) < 10) {
+    res += "0";
+  }
+  res += (d.getMonth() + 1).toString() + " à ";
+  if(d.getHours() < 10) {
+    res += "0";
+  }
+  res += d.getHours() + "h";
+  if(d.getMinutes() < 10) {
+    res += "0";
+  }
+  res += d.getMinutes();
+  return res;
+}
+
+function sendToTchat(msg) {
+  let d = new Date();
+  let res = "<p>[";
+  if(d.getHours() < 10) {
+    res += "0";
+  }
+  res += d.getHours() + ":";
+  if(d.getMinutes() < 10) {
+    res += "0";
+  }
+  res += d.getMinutes();
+  res += "] " + msg + "</p>";
+  if(tchat.length > 0 && msg == "Votre tour."){
+    if(tchat[tchat.length-1].split(']')[1] != " Votre tour.</p>"){
+      tchat.push(res);
+    }
+  } else {
+    tchat.push(res);
+  }
+  refreshTchat();
+}
+
+function refreshTchat() {
+  $("#tchat").empty();
+  for(let i=tchat.length-1; i>=0; i--) {
+    $("#tchat").append(tchat[i]);
+  }
+}
+
 window.onload = () => {
   setTimeout(() => {
     config.socketId = socket.id;
@@ -335,3 +476,31 @@ window.onload = () => {
     refresh_screen();
   }, 1000);
 };
+
+/* CA FAISAIT BUGGER
+window.onbeforeunload = (event) => {
+  if(config.type_de_partie != "solo" && config.gagnant == undefined) {
+    event.returnValue = "Attention, tu es sur le point d'abandoner !"; // Ne s'affiche pas sur certains navigateurs mais c'est normal tkt
+  }
+};
+*/
+
+socket.on("partie finie", (gagnant) => {
+  if(config.type_de_partie == "Solo" && gagnant == null) {
+    location.reload();
+  } else {
+    config.gagnant = gagnant;
+    ecran_actuel = ecran.winner;
+    refresh_screen();
+  }
+});
+
+socket.on("refresh", (joueur) => {
+  if(joueur == config.codeJ.toLowerCase()) {
+    refresh_screen();
+  }
+});
+
+socket.on("ecrit tchat", (msg) => {
+  sendToTchat(msg);
+});
