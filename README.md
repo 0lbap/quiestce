@@ -17,4 +17,5 @@ Si vous souhaitez déployer le jeu en local, suivez les instructions.
 2. Clonez ce repository dans un dossier nommé `quiestce`
 3. Ouvrez un terminal et rendez vous dans le dossier `quiestce`
 4. Installez les dépendances avec `npm install`
-5. 
+5. Lancez le serveur avec `node index.js`
+6. Rendez vous sur http://localhost:8000 pour voir le rendu !
