@@ -158,7 +158,7 @@ io.on("connection", (socket) => {
     //console.log("Question reçue : " + data);
     let room = [...socket.rooms][1];
     let reponse = room.game[room.joueurs.J1.json.Tour].plateau.poser_question(cree_question(data));
-    let msg = "Question de " + room.joueurs.J1.json.Tour + " : " + cree_question(data).fbf.toString(cree_question(data).attributs);
+    let msg = "Question de " + room.joueurs.J1.json.Tour + " : " + cree_question(data).fbf.toString(cree_question(data).attributs) + " -> " + reponse;
     io.in(room).emit("ecrit tchat", msg);
    if(data.lignes.length == 1 && data.lignes[0].attribut.nom == "prenom" && reponse == true) {
       let gagnant;
@@ -368,7 +368,9 @@ function attributsPlateau(game){
 function prenomsPlateau(game){
   let prenoms = [];
   for(p of game.j1.plateau.personnages){
-    prenoms.push(p.attributs[0].valeur);
+    if(p.visible == "true"){      
+      prenoms.push(p.attributs[0].valeur);
+    }
   }
   return prenoms;
 }
