@@ -1,0 +1,553 @@
+{
+  "Tour": "undefined",
+  "J1": {
+    "personnage_cache": {
+      "nom": "-1"
+    },
+    "personnages": [
+      {
+        "nom": "Caitlyn",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/3/35/Caitlyn_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Bleu","Long"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Oui","Chapeau"]
+          },
+          {
+            "Classe": ["Tireur"]
+          }
+        ]
+      },
+      {
+        "nom": "Garen",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/9/97/Garen_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Brun","Court"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Non"]
+          },
+          {
+            "Classe": ["Combattant"]
+          }
+        ]
+      },
+
+      {
+        "nom": "Ekko",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/5/5f/Ekko_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Blanc","Court"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Non"]
+          },
+          {
+            "Classe": ["Assassin", "Combattant"]
+          }
+        ]
+      },
+
+      {
+        "nom": "Graves",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/c/c7/Graves_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Brun","Court"]
+          },
+          {
+            "Moustache": ["Oui"]
+          },
+          {
+            "Couvre-chef": ["Non"]
+          },
+          {
+            "Classe": ["Tireur"]
+          }
+        ]
+      },
+
+      {
+        "nom": "Olaf",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/7/7e/Olaf_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Roux","Long"]
+          },
+          {
+            "Moustache": ["Oui"]
+          },
+          {
+            "Couvre-chef": ["Oui","Casque"]
+          },
+          {
+            "Classe": ["Combattant"]
+          }
+        ]
+      },
+
+      {
+        "nom": "Sejuani",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/6/62/Sejuani_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Blanc","Moyen"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Oui","Casque"]
+          },
+          {
+            "Classe": ["Tank"]
+          }
+        ]
+      },
+      {
+        "nom": "Seraphine",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/8/81/Seraphine_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Rose","Long"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Non"]
+          },
+          {
+            "Classe": ["Support"]
+          }
+        ]
+      },
+      {
+        "nom": "Braum",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/2/28/Braum_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Chauve"]
+          },
+          {
+            "Moustache": ["Oui"]
+          },
+          {
+            "Couvre-chef": ["Non"]
+          },
+          {
+            "Classe": ["Support"]
+          }
+        ]
+      },
+      {
+        "nom": "Camille",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/0/0d/Camille_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Blanc","Moyen"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Non"]
+          },
+          {
+            "Classe": ["Combattant"]
+          }
+        ]
+      },
+      {
+        "nom": "Zeri",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/7/7d/Zeri_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Vert","Moyen"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Non"]
+          },
+          {
+            "Classe": ["Tireur"]
+          }
+        ]
+      },
+      {
+        "nom": "Twisted Fate",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/2/2e/Twisted_Fate_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Brun","Long"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Oui","Chapeau"]
+          },
+          {
+            "Classe": ["Mage"]
+          }
+        ]
+      },
+      {
+        "nom": "Fiora",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/9/94/Fiora_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Rose", "Violet","Moyen"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Non"]
+          },
+          {
+            "Classe": ["Combattant"]
+          }
+        ]
+      }
+    ]
+  },
+  "J2": {
+    "personnage_cache": {
+      "nom": "-1"
+    },
+    "personnages": [
+      {
+        "nom": "Caitlyn",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/3/35/Caitlyn_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Bleu","Long"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Oui","Chapeau"]
+          },
+          {
+            "Classe": ["Tireur"]
+          }
+        ]
+      },
+      {
+        "nom": "Garen",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/9/97/Garen_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Brun","Court"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Non"]
+          },
+          {
+            "Classe": ["Combattant"]
+          }
+        ]
+      },
+
+      {
+        "nom": "Ekko",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/5/5f/Ekko_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Blanc","Court"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Non"]
+          },
+          {
+            "Classe": ["Assassin", "Combattant"]
+          }
+        ]
+      },
+
+      {
+        "nom": "Graves",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/c/c7/Graves_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Brun","Court"]
+          },
+          {
+            "Moustache": ["Oui"]
+          },
+          {
+            "Couvre-chef": ["Non"]
+          },
+          {
+            "Classe": ["Tireur"]
+          }
+        ]
+      },
+
+      {
+        "nom": "Olaf",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/7/7e/Olaf_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Roux","Long"]
+          },
+          {
+            "Moustache": ["Oui"]
+          },
+          {
+            "Couvre-chef": ["Oui","Casque"]
+          },
+          {
+            "Classe": ["Combattant"]
+          }
+        ]
+      },
+
+      {
+        "nom": "Sejuani",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/6/62/Sejuani_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Blanc","Moyen"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Oui","Casque"]
+          },
+          {
+            "Classe": ["Tank"]
+          }
+        ]
+      },
+      {
+        "nom": "Seraphine",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/8/81/Seraphine_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Rose","Long"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Non"]
+          },
+          {
+            "Classe": ["Support"]
+          }
+        ]
+      },
+      {
+        "nom": "Braum",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/2/28/Braum_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Chauve"]
+          },
+          {
+            "Moustache": ["Oui"]
+          },
+          {
+            "Couvre-chef": ["Non"]
+          },
+          {
+            "Classe": ["Support"]
+          }
+        ]
+      },
+      {
+        "nom": "Camille",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/0/0d/Camille_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Blanc","Moyen"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Non"]
+          },
+          {
+            "Classe": ["Combattant"]
+          }
+        ]
+      },
+      {
+        "nom": "Zeri",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/7/7d/Zeri_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Vert","Moyen"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Non"]
+          },
+          {
+            "Classe": ["Tireur"]
+          }
+        ]
+      },
+      {
+        "nom": "Twisted Fate",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/2/2e/Twisted_Fate_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Brun","Long"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Oui","Chapeau"]
+          },
+          {
+            "Classe": ["Mage"]
+          }
+        ]
+      },
+      {
+        "nom": "Fiora",
+        "img": "https://static.wikia.nocookie.net/leagueoflegends/images/9/94/Fiora_OriginalSquare.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Rose", "Violet","Moyen"]
+          },
+          {
+            "Moustache": ["Non"]
+          },
+          {
+            "Couvre-chef": ["Non"]
+          },
+          {
+            "Classe": ["Combattant"]
+          }
+        ]
+      }
+    ]
+  }
+}
