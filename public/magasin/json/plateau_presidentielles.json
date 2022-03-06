@@ -1,0 +1,545 @@
+{
+  "Tour": "undefined",
+  "J1": {
+    "personnage_cache": {
+      "nom": "-1"
+    },
+    "personnages": [
+      {
+        "nom": "Macron",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_emmanuel_macron.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Châtain","Court"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Centre"]
+          }
+        ]
+      },
+      {
+        "nom": "Le Pen",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_marine_le_pen.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Blonds","Long"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Extrême droite"]
+          }
+        ]
+      },
+      {
+        "nom": "Pécresse",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_valerie_pecresse.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Blonds","Long"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Droite"]
+          }
+        ]
+      },
+      {
+        "nom": "Mélenchon",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_jean_luc-melenchon.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Gris","Court"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Oui"]
+          },
+          {
+            "Bord politique": ["Extrême gauche"]
+          }
+        ]
+      },
+      {
+        "nom": "Zemmour",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_eric_zemmour.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Gris","Court"]
+          },
+          {
+            "Calvitie": ["Oui"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Extrême droite"]
+          }
+        ]
+      },
+      {
+        "nom": "Hidalgo",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_anne_hidalgo.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Brun","Long"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Gauche"]
+          }
+        ]
+      },
+      {
+        "nom": "Jadot",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_yannick_jadot.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Châtain","Court"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Ecologie"]
+          }
+        ]
+      },
+      {
+        "nom": "Arthaud",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_nathalie_arthaud.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Brun","Court"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Oui"]
+          },
+          {
+            "Bord politique": ["Extrême gauche"]
+          }
+        ]
+      },
+      {
+        "nom": "Taubira",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_12_17_christiane_taubira.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Brun","Court"]
+          },
+          {
+            "Calvitie": ["Oui"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Gauche"]
+          }
+        ]
+      },
+      {
+        "nom": "Poutou",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_philippe_poutou.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Blancs","Court"]
+          },
+          {
+            "Calvitie": ["Oui"]
+          },
+          {
+            "Lunettes": ["Oui"]
+          },
+          {
+            "Bord politique": ["Extrême gauche"]
+          }
+        ]
+      },
+      {
+        "nom": "Dupont-Aignan",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_nicolas_dupont_aignan.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Gris","Court"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Extrême droite"]
+          }
+        ]
+      },
+      {
+        "nom": "Roussel",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_fabien_roussel.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Gris","Court"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Extrême gauche"]
+          }
+        ]
+      }
+    ]
+  },
+  "J2": {
+    "personnage_cache": {
+      "nom": "-1"
+    },
+    "personnages": [
+      {
+        "nom": "Macron",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_emmanuel_macron.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Châtain","Court"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Centre"]
+          }
+        ]
+      },
+      {
+        "nom": "Le Pen",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_marine_le_pen.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Blonds","Long"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Extrême droite"]
+          }
+        ]
+      },
+      {
+        "nom": "Pécresse",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_valerie_pecresse.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Blonds","Long"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Droite"]
+          }
+        ]
+      },
+      {
+        "nom": "Mélenchon",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_jean_luc-melenchon.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Gris","Court"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Oui"]
+          },
+          {
+            "Bord politique": ["Extrême gauche"]
+          }
+        ]
+      },
+      {
+        "nom": "Zemmour",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_eric_zemmour.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Gris","Court"]
+          },
+          {
+            "Calvitie": ["Oui"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Extrême droite"]
+          }
+        ]
+      },
+      {
+        "nom": "Hidalgo",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_anne_hidalgo.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Brun","Long"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Gauche"]
+          }
+        ]
+      },
+      {
+        "nom": "Jadot",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_yannick_jadot.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Châtain","Court"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Ecologie"]
+          }
+        ]
+      },
+      {
+        "nom": "Arthaud",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_nathalie_arthaud.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Brun","Court"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Oui"]
+          },
+          {
+            "Bord politique": ["Extrême gauche"]
+          }
+        ]
+      },
+      {
+        "nom": "Taubira",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_12_17_christiane_taubira.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Femme"]
+          },
+          {
+            "Cheveux": ["Brun","Court"]
+          },
+          {
+            "Calvitie": ["Oui"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Gauche"]
+          }
+        ]
+      },
+      {
+        "nom": "Poutou",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_philippe_poutou.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Blancs","Court"]
+          },
+          {
+            "Calvitie": ["Oui"]
+          },
+          {
+            "Lunettes": ["Oui"]
+          },
+          {
+            "Bord politique": ["Extrême gauche"]
+          }
+        ]
+      },
+      {
+        "nom": "Dupont-Aignan",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_nicolas_dupont_aignan.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Gris","Court"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Extrême droite"]
+          }
+        ]
+      },
+      {
+        "nom": "Roussel",
+        "img": "https://www.francetvinfo.fr/docs/desk3/candidat-tracker/2021_10_11_fabien_roussel.png",
+        "visible": "true",
+        "attributs": [
+          {
+            "Genre": ["Homme"]
+          },
+          {
+            "Cheveux": ["Gris","Court"]
+          },
+          {
+            "Calvitie": ["Non"]
+          },
+          {
+            "Lunettes": ["Non"]
+          },
+          {
+            "Bord politique": ["Extrême gauche"]
+          }
+        ]
+      }
+    ]
+  }
+}
