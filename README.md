@@ -1,4 +1,9 @@
 # quiestce
+
+[![OS](https://img.shields.io/badge/OS-macOS,Windows,Linux-blue.svg)](https://shields.io/)
+[![Made_with](https://img.shields.io/badge/Made_with-Javascript,Node.js-blue.svg)](https://shields.io/)
+[![Version](https://img.shields.io/badge/Version-1.0-default.svg)](https://shields.io/)
+
 Projet de Programmation du S4.
 
 Consigne : Réaliser le jeu du _Qui-est-ce_ avec le langage de programmation de votre choix.
