@@ -33,6 +33,8 @@ Une fois votre pseudo entré, vous pouvez choisir un type de partie :
 2. _Contre l'ordi_ : vous jouez contre l'ordi, à une difficulté donnée
 3. _Multijoueur_ : vous jouez avec un ami qui vous rejoindra avec un code
 
+> Note : Les modes _Contre l'ordi_ et _Multijoueur_ sont en cours de développement et peuvent provoquer des erreurs.
+
 Ensuite, si vous êtes en _Solo_ ou en _Contre l'ordi_, vous pouvez choisir le mode de jeu :
 1. _Normal_ : partie classique sans outils supplémentaires
 2. _Triche_ : partie avec des outils permettant de retourner les personnages automatiquement, d'évaluer l'efficacité de votre question ou de générer une bonne question
@@ -55,16 +57,15 @@ L'action _Sauver la partie_ permet de télécharger le json de la partie actuell
 
 L'action _Abandonner_ fait gagner l'adversaire.
 
+> Note : La déconnexion d'un joueur entraine sa disqualification immédiate !
+
 En dessous des actions, vous retrouverez un tchat concernant l'_Historique_ des actions avec l'heure correspondante. Le tour et les questions que vous avez posé y seront écrites.
 
 Lorsqu'un joueur a gagné, il sera affiché à l'écran chez les deux joueurs, et vous serez invité à revenir à l'accueil.
 
-> Note 1 : L'interface graphique du jeu est monopage, n'utilisez pas le bouton retour de votre navigateur pendant la partie !
+> Note : L'interface graphique du jeu est monopage, n'utilisez pas le bouton retour de votre navigateur pendant la partie !
 
-> Note 2 : La déconnexion d'un joueur entraine sa disqualification immédiate !
-
-
-### Magasin de plateaux (WIP)
+### Magasin de plateaux
 
 Sur cette page, vous trouverez différents plateaux de jeu sous format json réalisés par nos soins. Si un plateau vous intéresse, cliquez sur _Télécharger_ et lancez une partie !
 
