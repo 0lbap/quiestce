@@ -47,6 +47,10 @@ h1,h2{
   border: 1px solid gray;
 }
 
+.card.recommande {
+  border: 1px solid gold;
+}
+
 .card h1{
   font-size: 1.5em;
   font-style: normal;
@@ -69,6 +73,10 @@ h1,h2{
   background-color: lightgreen;
 }
 
+.card.recommande button{
+  background-color: gold;
+}
+
 button {
   border: none;
   box-shadow: 4px 4px black;
@@ -82,4 +90,17 @@ button {
 button:hover {
   box-shadow: 0px 0px black;
   transition: 0.2s ease;
+}
+
+.banner {
+  transform: rotate(30deg);
+  background-color: lightgray;
+  width: min-content;
+  padding: 0.5em;
+  position: absolute;
+  right: -1em;
+}
+
+.banner.recommande {
+  background-color: gold;
 }
