@@ -1,1 +1,44 @@
-
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/magasin/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="/public/magasin/main.js"></script>
+    <title>Magasin</title>
+</head>
+<body>
+    <h1>Bienvenue dans le magasin !</h1>
+    <h2>Ici vous trouverez des plateaux de jeu sous format json.</h2>
+    <div class="card-container">
+        <div class="card">
+            <img src="/public/magasin/paquet_presidentielles.png" alt="paquet_presidentielles">
+            <h1>Plateau presidentielles</h1>
+            <p>Un plateau avec les candidats de la présidentielle 2022 !</p>
+            <button onclick='download("plateau_presidentielles")'>Télécharger</button>
+        </div>
+        <div class="card">
+            <img src="/public/magasin/paquet1.png" alt="paquet_fds">
+            <h1>Plateau profs de la FdS</h1>
+            <p>Un plateau avec les profs de la fac de sciences !</p>
+            <button onclick='download("plateau_profs")'>Télécharger</button>
+        </div>
+        <div class="card">
+            <img src="/public/magasin/paquet1.png" alt="paquet_league">
+            <h1>Plateau League of Legends</h1>
+            <p>Un plateau avec les persos du jeu League of Legends !</p>
+            <button onclick='download("plateau_league")'>Télécharger</button>
+        </div>
+        <div class="card">
+            <img src="/public/magasin/paquet_simple.png" alt="paquet_simple">
+            <h1>Plateau simple</h1>
+            <p>Un plateau avec des personnages de base !</p>
+            <button onclick='download("plateau_simple")'>Télécharger</button>
+        </div>
+    </div>
+</body>
+</html>
