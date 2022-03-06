@@ -7,7 +7,7 @@ Consigne : Réaliser le jeu du _Qui-est-ce_ avec le langage de programmation de 
 
 Le projet a été travaillé sur un serveur [Replit](https://replit.com/@Ethazio/Qui-est-ce) Node.js.
 
-Il est également déployé sur un serveur personnel à l'[adresse suivante](https://elliotburns.com/).
+Il est également déployé sur un serveur personnel à l'[adresse suivante](https://elliotburns.com/) (beaucoup plus performant).
 
 ## Déploiement
 
