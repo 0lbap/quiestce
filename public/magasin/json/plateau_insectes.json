@@ -1,0 +1,1387 @@
+{
+  "Tour": "undefined",
+  "J1": {
+    "personnage_cache": {
+      "nom": "-1"
+    },
+    "personnages": [
+      {
+        "nom": "Scarabé",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950029132526403715/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Oui",
+              "Noir"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Papillons",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950029242899513384/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Non"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui",
+              "Tâches"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Oui",
+              "Marrons"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Libellule",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950029356154109992/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Non"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui",
+              "Transparentes"
+            ]
+          },
+          {
+            "Antennes": [
+              "Non"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Criquet",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950028633450356776/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Oui"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Oui"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Abeille",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950029542146330654/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Non"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui",
+              "Transparentes"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Oui",
+              "Orange",
+              "Blanc"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Mouche",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950030780111925298/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Non"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui",
+              "Transparentes"
+            ]
+          },
+          {
+            "Antennes": [
+              "Non"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Oui",
+              "Noirs"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Punaise",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950031308015431690/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Oui",
+              "Rouge",
+              "Noir",
+              "Rayée"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui",
+              "2"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Puceron",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950031882551177236/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Non"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui",
+              "Transparentes"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui",
+              "2"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Perce-oreille",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950032652231139348/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Non"
+            ]
+          },
+          {
+            "Carapace": [
+              "Oui",
+              "Marron"
+            ]
+          },
+          {
+            "Ailes": [
+              "Non"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui",
+              "2"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Oui"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Araignée",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950033745392586772/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Non"
+            ]
+          },
+          {
+            "Carapace": [
+              "Non"
+            ]
+          },
+          {
+            "Ailes": [
+              "Non"
+            ]
+          },
+          {
+            "Antennes": [
+              "Non"
+            ]
+          },
+          {
+            "Pattes": [
+              "8"
+            ]
+          },
+          {
+            "Poils": [
+              "Oui",
+              "Blanc"
+            ]
+          },
+          {
+            "Crochets": [
+              "Oui"
+            ]
+          },
+          {
+            "Yeux": [
+              "4"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Scorpion",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950034182833311824/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Non"
+            ]
+          },
+          {
+            "Carapace": [
+              "Oui",
+              "Orange"
+            ]
+          },
+          {
+            "Ailes": [
+              "Non"
+            ]
+          },
+          {
+            "Antennes": [
+              "Non"
+            ]
+          },
+          {
+            "Pattes": [
+              "8"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Oui"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Coccinelle",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950035085204271194/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Oui",
+              "Rouge",
+              "Noir",
+              "Tâches"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui",
+              "2"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Fourmi",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950035978733625354/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Non"
+            ]
+          },
+          {
+            "Carapace": [
+              "Oui",
+              "Noir"
+            ]
+          },
+          {
+            "Ailes": [
+              "Non"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui",
+              "2"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Oui"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Mille-pattes",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950036983655321600/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Non"
+            ]
+          },
+          {
+            "Carapace": [
+              "Oui",
+              "Noir"
+            ]
+          },
+          {
+            "Ailes": [
+              "Non"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui",
+              "2"
+            ]
+          },
+          {
+            "Pattes": [
+              "10+"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "J2": {
+    "personnage_cache": {
+      "nom": "-1"
+    },
+    "personnages": [
+      {
+        "nom": "Scarabé",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950029132526403715/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Oui",
+              "Noir"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Papillons",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950029242899513384/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Non"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui",
+              "Tâches"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Oui",
+              "Marrons"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Libellule",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950029356154109992/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Non"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui",
+              "Transparentes"
+            ]
+          },
+          {
+            "Antennes": [
+              "Non"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Criquet",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950028633450356776/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Oui"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Oui"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Abeille",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950029542146330654/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Non"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui",
+              "Transparentes"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Oui",
+              "Orange",
+              "Blanc"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Mouche",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950030780111925298/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Non"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui",
+              "Transparentes"
+            ]
+          },
+          {
+            "Antennes": [
+              "Non"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Oui",
+              "Noirs"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Punaise",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950031308015431690/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Oui",
+              "Rouge",
+              "Noir",
+              "Rayée"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui",
+              "2"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Puceron",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950031882551177236/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Non"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui",
+              "Transparentes"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui",
+              "2"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Perce-oreille",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950032652231139348/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Non"
+            ]
+          },
+          {
+            "Carapace": [
+              "Oui",
+              "Marron"
+            ]
+          },
+          {
+            "Ailes": [
+              "Non"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui",
+              "2"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Oui"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Araignée",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950033745392586772/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Non"
+            ]
+          },
+          {
+            "Carapace": [
+              "Non"
+            ]
+          },
+          {
+            "Ailes": [
+              "Non"
+            ]
+          },
+          {
+            "Antennes": [
+              "Non"
+            ]
+          },
+          {
+            "Pattes": [
+              "8"
+            ]
+          },
+          {
+            "Poils": [
+              "Oui",
+              "Blanc"
+            ]
+          },
+          {
+            "Crochets": [
+              "Oui"
+            ]
+          },
+          {
+            "Yeux": [
+              "4"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Scorpion",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950034182833311824/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Non"
+            ]
+          },
+          {
+            "Carapace": [
+              "Oui",
+              "Orange"
+            ]
+          },
+          {
+            "Ailes": [
+              "Non"
+            ]
+          },
+          {
+            "Antennes": [
+              "Non"
+            ]
+          },
+          {
+            "Pattes": [
+              "8"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Oui"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Coccinelle",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950035085204271194/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Oui"
+            ]
+          },
+          {
+            "Carapace": [
+              "Oui",
+              "Rouge",
+              "Noir",
+              "Tâches"
+            ]
+          },
+          {
+            "Ailes": [
+              "Oui"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui",
+              "2"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Fourmi",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950035978733625354/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Non"
+            ]
+          },
+          {
+            "Carapace": [
+              "Oui",
+              "Noir"
+            ]
+          },
+          {
+            "Ailes": [
+              "Non"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui",
+              "2"
+            ]
+          },
+          {
+            "Pattes": [
+              "6"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Oui"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Mille-pattes",
+        "visible": "true",
+        "img": "https://cdn.discordapp.com/attachments/430345829044453397/950036983655321600/unknown.png",
+        "attributs": [
+          {
+            "Vole": [
+              "Non"
+            ]
+          },
+          {
+            "Carapace": [
+              "Oui",
+              "Noir"
+            ]
+          },
+          {
+            "Ailes": [
+              "Non"
+            ]
+          },
+          {
+            "Antennes": [
+              "Oui",
+              "2"
+            ]
+          },
+          {
+            "Pattes": [
+              "10+"
+            ]
+          },
+          {
+            "Poils": [
+              "Non"
+            ]
+          },
+          {
+            "Crochets": [
+              "Non"
+            ]
+          },
+          {
+            "Yeux": [
+              "2"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
