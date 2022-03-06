@@ -66,7 +66,7 @@ Lorsqu'un joueur a gagné, il sera affiché à l'écran chez les deux joueurs, e
 
 ### Magasin de plateaux (WIP)
 
-Work in progress...
+Sur cette page, vous trouverez différents plateaux de jeu sous format json réalisés par nos soins. Si un plateau vous intéresse, cliquez sur _Télécharger_ et lancez une partie !
 
 ### Générateur de plateaux (WIP)
 
