@@ -69,6 +69,238 @@ Lorsqu'un joueur a gagné, il sera affiché à l'écran chez les deux joueurs, e
 
 Sur cette page, vous trouverez différents plateaux de jeu sous format json réalisés par nos soins. Si un plateau vous intéresse, cliquez sur _Télécharger_ et lancez une partie !
 
+> Note : Les plateaux sont stockés dans `quiestce/public/magasin/json/`.
+
 ### Générateur de plateaux (WIP)
 
 Work in progress...
+
+## Format du plateau json
+
+Dans cette section nous verrons les spécificités du format json utilisé pour les plateaux.
+
+Voici un extrait commenté d'un de nos json :
+
+```js
+{
+  "Tour": "undefined", /* Le tour sera choisi aléatoirement entre J1 et J2 pour savoir qui commence */
+  "J1": { /* Plateau du J1 */
+    "personnage_cache": {
+      "nom": "-1" /* Le personnage caché du J1 sera choisi aléatoirement */
+    },
+    "personnages": [ /* Une liste d'objets représentant les personnages */
+      {
+        "nom": "Léon", /* Le nom du personnage 1 */
+        "visible": "true", /* Par défaut tous les personnages sont visibles */
+        "img": "https://i.imgur.com/mNan2l3.png", /* Le lien vers l'image du personnage 1 */
+        "attributs": [ /* Une liste d'objets représentant les attributs du personnage 1 */
+          {
+            "Cheveux": [
+              "Blond",
+              "Courts" /* Il peut y avoir plusieurs valeurs pour un même attribut */
+            ]
+          },
+          {
+            "Genre": [
+              "Homme"
+            ]
+          },
+          {
+            "Lunettes": [
+              "Oui",
+              "Carrées",
+              "Grande"
+            ]
+          },
+          {
+            "Couvre chef": [
+              "Aucun"
+            ]
+          },
+          {
+            "Moustache": [
+              "Aucune"
+            ]
+          },
+          {
+            "Barbe": [
+              "Aucune"
+            ]
+          },
+          {
+            "Sourcils": [
+              "Blond",
+              "Fins"
+            ]
+          },
+          {
+            "Taille du nez": [
+              "Petit"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Simon", /* Le nom du personnage 2 */
+        "visible": "true", /* Par défaut tous les personnages sont visibles */
+        "img": "https://i.imgur.com/kKIb8nb.png", /* Le lien vers l'image du personnage 2 */
+        "attributs": [
+          {
+            "Cheveux": [
+              "Blanc",
+              "Courts"
+            ]
+          },
+          {
+            "Genre": [
+              "Homme"
+            ]
+          },
+          {
+            "Lunettes": [
+              "Oui",
+              "Petite",
+              "Carées"
+            ]
+          },
+          {
+            "Couvre chef": [
+              "Aucun"
+            ]
+          },
+          {
+            "Moustache": [
+              "Aucune"
+            ]
+          },
+          {
+            "Barbe": [
+              "Aucune"
+            ]
+          },
+          {
+            "Sourcils": [
+              "Blanc",
+              "Fins"
+            ]
+          },
+          {
+            "Taille du nez": [
+              "Petit"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "J2": { /* Plateau du J2 */
+    "personnage_cache": {
+      "nom": "-1" /* Le personnage caché du J2 sera choisi aléatoirement */
+    },
+    "personnages": [ /* Une liste d'objets représentant les personnages */
+      {
+        "nom": "Léon", /* Le nom du personnage 1 */
+        "visible": "true", /* Par défaut tous les personnages sont visibles */
+        "img": "https://i.imgur.com/mNan2l3.png", /* Le lien vers l'image du personnage 1 */
+        "attributs": [ /* Une liste d'objets représentant les attributs du personnage 1 */
+          {
+            "Cheveux": [
+              "Blond",
+              "Courts" /* Il peut y avoir plusieurs valeurs pour un même attribut */
+            ]
+          },
+          {
+            "Genre": [
+              "Homme"
+            ]
+          },
+          {
+            "Lunettes": [
+              "Oui",
+              "Carrées",
+              "Grande"
+            ]
+          },
+          {
+            "Couvre chef": [
+              "Aucun"
+            ]
+          },
+          {
+            "Moustache": [
+              "Aucune"
+            ]
+          },
+          {
+            "Barbe": [
+              "Aucune"
+            ]
+          },
+          {
+            "Sourcils": [
+              "Blond",
+              "Fins"
+            ]
+          },
+          {
+            "Taille du nez": [
+              "Petit"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "Simon", /* Le nom du personnage 2 */
+        "visible": "true", /* Par défaut tous les personnages sont visibles */
+        "img": "https://i.imgur.com/kKIb8nb.png", /* Le lien vers l'image du personnage 2 */
+        "attributs": [
+          {
+            "Cheveux": [
+              "Blanc",
+              "Courts"
+            ]
+          },
+          {
+            "Genre": [
+              "Homme"
+            ]
+          },
+          {
+            "Lunettes": [
+              "Oui",
+              "Petite",
+              "Carées"
+            ]
+          },
+          {
+            "Couvre chef": [
+              "Aucun"
+            ]
+          },
+          {
+            "Moustache": [
+              "Aucune"
+            ]
+          },
+          {
+            "Barbe": [
+              "Aucune"
+            ]
+          },
+          {
+            "Sourcils": [
+              "Blanc",
+              "Fins"
+            ]
+          },
+          {
+            "Taille du nez": [
+              "Petit"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
