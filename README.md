@@ -2,7 +2,10 @@
 
 [![OS](https://img.shields.io/badge/OS-macOS,Windows,Linux-blue.svg)](https://shields.io/)
 [![Made_with](https://img.shields.io/badge/Made_with-Javascript,Node.js-blue.svg)](https://shields.io/)
-[![Version](https://img.shields.io/badge/Version-1.0-success.svg)](https://shields.io/)
+[![Version](https://img.shields.io/badge/Version-1.0-blue.svg)](https://shields.io/)
+[![Mode_Solo](https://img.shields.io/badge/Mode_Solo-OK-success.svg)](https://shields.io/)
+[![Mode_Ordi](https://img.shields.io/badge/Mode_Ordi-WIP-yellow.svg)](https://shields.io/)
+[![Mode_Multijoueur](https://img.shields.io/badge/Mode_Multijoueur-WIP-yellow.svg)](https://shields.io/)
 
 Projet de Programmation du S4.
 
