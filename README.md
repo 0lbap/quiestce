@@ -2,7 +2,7 @@
 
 [![OS](https://img.shields.io/badge/OS-macOS,Windows,Linux-blue.svg)](https://shields.io/)
 [![Made_with](https://img.shields.io/badge/Made_with-Javascript,Node.js-blue.svg)](https://shields.io/)
-[![Version](https://img.shields.io/badge/Version-1.0-default.svg)](https://shields.io/)
+[![Version](https://img.shields.io/badge/Version-1.0-success.svg)](https://shields.io/)
 
 Projet de Programmation du S4.
 
@@ -24,6 +24,8 @@ Si vous souhaitez déployer le jeu en local, suivez les instructions.
 4. Installez les dépendances avec `npm install`
 5. Lancez le serveur avec `node index.js`
 6. Rendez vous sur http://localhost:8000 pour voir le rendu !
+
+> Note : `npm install` installe les dépendances nécessaires : [Socket.IO](https://socket.io/) et [Express](http://expressjs.com/)
 
 ## Vue d'ensemble de l'interface
 
