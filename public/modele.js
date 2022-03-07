@@ -231,7 +231,6 @@ function refresh_screen() {
     case ecran.plateau:
       socket.emit("requete plateau");
       socket.once("reponse plateau", (data) => {
-        console.log(data);
         afficherPlateau(data,config.codeJ);
         if (data.Tour != config.codeJ.toLowerCase()) {
           $("#btn-new_question").addClass("disabled");
