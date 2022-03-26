@@ -81,9 +81,31 @@ Sur cette page, vous trouverez différents plateaux de jeu sous format json réa
 
 > Note : Les plateaux sont stockés dans `quiestce/public/magasin/json/`.
 
-### Générateur de plateaux (WIP)
+### Générateur de plateaux
 
-Work in progress...
+Sur cette page, vous pourrez créer vos propres plateaux de jeu sous format json !
+
+Vous pouvez soit créer un tout nouveau plateau, soit modifier un plateau existant.
+
+Pour modifier un plateau, commencez par le charger en cliquant sur _Parcourir_. Le plateau sera automatiquement chargé et affiché. Vous pourrez ensuite modifier les attributs possibles et chaque personnage individuellement.
+
+> Note : Charger un plateau écrasera votre travail existant !
+
+En partant de rien, vous devrez ajouter au moins un attribut pour différencier les personnages.
+
+Pour créer une nouvelle possibilité d'attribut, cliquez sur le _+_ de la section _Attributs possibles_. Entrez un nom puis cliquez sur _Valider_. Vous pouvez supprimer un attribut possible en cliquant sur la croix correspondante, ou tous les attributs en cliquant sur _Reset_.
+
+Chaque personnage, son nom ainsi que son image correspondante, est affiché dans la section _Personnages_. Pour créer un personnage, cliquez sur le _+_ de la section _Personnages_. Vous pouvez cliquer sur un personnage pour le visualiser : vous aurez ainsi accès aux champs _Nom_, _Image_ et autant de champs d'attributs que vous avez créé. Quand vous avez terminé de modifier un personnage, cliquez sur _Valider_. Vous pouvez aussi _Supprimer_ un personnage.
+
+> Note : Si vous ne remplissez pas le champ _Nom_, un nom "Perso n°x" sera automatiquement attribué.
+
+> Note : Le champ _Image_ doit contenir un lien externe vers une image (format png, jpg, jpeg ou gif). Si vous souhaitez inclure une image de votre disque dur, hébergez cette image sur un site comme [imgur](https://imgur.com/) et copiez son lien dans le champ correspondant.
+
+La section _Json_ vous permettra de _Générer_ votre plateau sous format json, de le visualiser dans le bloc noir en bas et de le _Télécharger_.
+
+> Note : Si une erreur survient lors de la génération du json, un message d'erreur est affiché en rouge dans le bloc noir. Le message vous indiquera la cause de l'erreur.
+
+Lorsque vous êtes satisfait avec votre plateau de jeu, téléchargez-le et essayez le !
 
 ## Format du plateau json
 
