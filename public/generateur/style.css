@@ -1,7 +1,8 @@
 /* CSS de la vue */
+/* Par pitié touchez avec les yeux svp */
 
 body {
-  background-color: rgb(218, 218, 218);
+  background: linear-gradient(135deg, #c7c7c755 25%, transparent 25%) -25px 0/ 50px 50px, linear-gradient(225deg, #e4e4e4 25%, transparent 25%) -25px 0/ 50px 50px, linear-gradient(315deg, #c7c7c755 25%, transparent 25%) 0px 0/ 50px 50px, linear-gradient(45deg, #e2e2e2 25%, #ececec 25%) 0px 0/ 50px 50px;
   color: rgb(41, 41, 41);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -17,7 +18,7 @@ body {
 }
 .input, .plateau, .json{
   margin-left: 5%;
-  
+  margin-right: 5%;
 }
 
 .plateau{
@@ -29,17 +30,33 @@ p.perso:hover{
   cursor: pointer;
 }
 
+.perso {
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+}
+
 .Personnage{
-  
   height:10em;
   width:8em;
   margin-right:1em;
-  margin-top:5px;
+  margin-bottom: 2em;
   border: 5px rgb(41, 41, 41) solid;
   border-radius: 10px;
   text-align: center;
-  
-  
+  cursor: pointer;
+  position:relative;
+}
+
+.Personnage p {
+  position: absolute;
+  bottom: -20%;
+  font-size: 20px;
+  width: 7em;
+  margin: 0;
+  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .popup{
@@ -54,7 +71,9 @@ p.perso:hover{
   border : 4px rgb(41, 41, 41) solid;
   border-radius: 5px;
   background-color:rgb(218, 218, 218);
+  padding: 1em;
 }
+
 .elements_popup{
   margin:5px;
   min-width: 5em;
@@ -62,11 +81,11 @@ p.perso:hover{
 }
 
 #main {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  width: 100vw;
-  height: 100vh;
+  /*position: absolute;*/
+  /*top: 0%;*/
+  /*left: 0%;*/
+  /*width: 100vw;*/
+  /*height: 100vh;*/
 }
 
 
@@ -153,4 +172,10 @@ titre{
 
 .text-red {
   color: red;
+}
+
+code.prettyprint, pre.prettyprint{
+  background-color: #252525;
+  border-radius: 0.5em;
+  width: 100%;
 }
