@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?skin=sunburst"></script>
     <link rel="stylesheet" href="/public/generateur/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <title>Générateur</title>
@@ -15,26 +16,26 @@
   </head>
   <body>
     <div id="main">
-      <a id="home-icon" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a>
-
       <div class="generateur" id="generateur">  
 
         <div class="titre">
-          <h1>Generateur de plateau Qui est-ce <span class="text-red">(WIP)</span></h1>
+          <h1>Generateur de plateau Qui est-ce </h1>
         </div>
-
+        
         <div class="input">
-
+          <h2>Charger :</h2>
+          <input type="file" id="json-input" accept=".json" ></input>
+        </div>
+        
+        <div class="input">
           <h2>Attributs possibles :</h2>
-          <div id="attributs">
-          </div>
+          <div id="attributs"></div>
           <br>
-          <button onclick="ajout_attribut()" style="width:35px; font-size: 1em;" >   +   </button>
+          <button onclick="ajout_attribut()" style="width:35px; font-size: 1em;" >+</button>
           <span class="spacer">
-          <button onclick="valider_attribut()"> Valider </button>
+          <button onclick="valider_attribut()">Valider</button>
           <span class="spacer">
-          <button onclick="reset_attributs()"> Reset ↻</button>
-
+          <button onclick="reset_attributs()">Reset ↻</button>
         </div>
         
         <br>
@@ -44,24 +45,22 @@
         <h2 class="plateau">Personnages :</h2>
         <br>
         <div class="plateau" id="plateau">
-          
-            <div class="Personnage" id="perso_0">
-            <p class="perso" id="persoP_0" style="font-size:50px;font-weight:bold;text-align:center" >+</p>
+          <div class="Personnage" id="perso_0">
+            <h2 class="perso" id="persoP_0">+</h2>
           </div>
-         
         </div>   
-         <script>init()</script>   
-
-
+        <script>init()</script>   
 
       </div>
-      <hr width="100%"> 
+      
+      <hr style="margin-top:3em;" width="100%"> 
+
       <div class="json" id="json_container">
         <h2>Json :</h2>
-        <button onclick="toJson()">Genere Json</button>
-        <div id="json"></div>
+        <button onclick="toJson()">Générer Json</button>
+        <pre id="json" class="prettyprint linenums"></pre>
       </div>
-
+      
     </div>
   </body>
 </html>
