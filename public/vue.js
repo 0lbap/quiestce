@@ -42,10 +42,16 @@ function afficherEcran(nomEcran) {
       html += '<input type="text" id="pseudo" placeholder="mon_pseudo_cool" maxlength="20">';
       html += '<span class="spacer"></span>';
       html += '<button id="btn-suivant">OK</button>';
-      html += '<br><br>';
-      html += '<a href="/magasin" target="_blank">Magasin de plateaux</a>';
-      html += '<br>';
-      html += '<a href="/generateur" target="_blank" class="text-gray">Générateur de plateaux (fonctionnel mais WIP)</a>';
+      html += '<br><br><br>';
+      html += '<button id="btn-magasin">';
+      html += '<span class="icon"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag" width="24" style=""><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg></span>';
+      html += '<span class="text">Magasin de plateaux</span>';
+      html += '</button>';
+      html += '<span class="spacer"></span>';
+      html += '<button id="btn-generateur">';
+      html += '<span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></span>';
+      html += '<span class="text">Générateur de plateaux</span>';
+      html += '</button>';
       $("#dialog").append(html);
       $("#dialog").show();
       break;
@@ -129,7 +135,7 @@ function afficherEcran(nomEcran) {
       break;
     case ecran.join_game:
       html += "<h1>Entrez le code de la partie</h1>";
-      html += '<input type="text" minlength="6" maxlength="6" placeholder="XXXXXX">';
+      html += '<input type="text" minlength="4" maxlength="4" placeholder="XXXX">';
       html += '<span class="spacer"></span>';
       html += '<button id="btn-join">Rejoindre</button>';
       html += '<br><br>';
@@ -205,7 +211,9 @@ function afficherEcran(nomEcran) {
       $("#dialog").show();
       break;
     case ecran.winner:
-      html += '<h1 id="winner"></h1>';
+      html += '<h1></h1>';
+      html += '<p id="persoATrouver"></p>';
+      html += '<br>';
       html += '<button id="btn-suivant">Nouvelle partie</button>';
       $("#dialog").append(html);
       $("#dialog").show();
@@ -242,7 +250,7 @@ function afficherMessage(message, type) {
 function afficherPlateau(plateau,codeJ) {
   console.log("affichage plateau " + codeJ);
   $("#plateau").empty();
-  let delay = 200;
+  let delay = 100;
   for (let i in plateau[codeJ].personnages) {
     let html = '<div id="perso' + i + '" class="personnage ' + codeJ + ' hidden">';
     html += '<div class="front">';
@@ -259,7 +267,8 @@ function afficherPlateau(plateau,codeJ) {
           $("#nom_perso" + i).removeAttr("hidden");
         }
     }, delay);
-    delay += 150;
+    if(plateau[codeJ].personnages[i].visible == "true")
+      delay += 100;
     $("#perso" + i).on("click", () => {
       socket.emit("changer visibilite", {i,codeJ});
       if(!$("#perso" + i).hasClass("hidden")) {
