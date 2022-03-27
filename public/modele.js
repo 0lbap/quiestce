@@ -34,6 +34,12 @@ function refresh_screen() {
           suivant();
         }
       });
+      $("#btn-magasin").on("click", () => {
+        window.open("/magasin", "_blank");
+      });
+      $("#btn-generateur").on("click", () => {
+        window.open("/generateur", "_blank");
+      });
       break;
     case ecran.newgame:
       $("#btn-newgame_solo").on("click", () => {
@@ -174,16 +180,21 @@ function refresh_screen() {
       });
       break;
     case ecran.join_game:
-      $("#btn-join").on("click", () => {
-        let code = $("input").val();
-        if(code.length == 6 && code.match(/^[a-z0-9]+$/i)) {
-          socket.emit("rejoindre partie", config, $("input").val());
-          ecran_actuel = ecran.waiting_room;
-          refresh_screen();
-        } else {
-          afficherMessage("Le code tapé n'a pas le bon format", typeMessage.alert);
-        }
+        let suivant2 = function () {
+          let code = $("input").val().toUpperCase();
+          if(code.length == 4 && code.match(/^[a-z]+$/i)) {
+            socket.emit("rejoindre partie", config, code);
+            ecran_actuel = ecran.waiting_room;
+            refresh_screen();
+          } else {
+            afficherMessage("Le code tapé n'a pas le bon format", typeMessage.alert);
+          }
+        };
+      $("body").keypress((data) => {
+        if (data.key == "Enter")
+          suivant2();
       });
+      $("#btn-join").on("click", suivant2);
       $("#btn-retour").on("click", () => {
         ecran_actuel = ecran.newgame_multi;
         refresh_screen();
@@ -238,11 +249,11 @@ function refresh_screen() {
           $("#btn-new_devine").addClass("disabled");
           $("#btn-new_devine").attr("disabled","disabled");
           $("#tour").text("C'est au tour de ton adversaire...");
-          sendToTchat("Tour adverse.");
+          sendToTchat("Tour adverse.", data.Tour);
           $("#sablier").show();
         } else {
           $("#tour").text("C'est a toi !");
-          sendToTchat("Votre tour.");
+          sendToTchat("Votre tour.", data.Tour);
           $("#sablier").hide();
         }
       });
@@ -272,7 +283,7 @@ function refresh_screen() {
         $("#btn-poser_question_auto").hide();
       }
       let attributs_plateau;
-      socket.emit("requete attributs plateau", config.idPartieJoueur);
+      socket.emit("requete attributs plateau", config.codeJ.toLowerCase());
       socket.once("reponse attributs plateau", (data) => {
         $("#lignesContainer").empty();
         attributs_plateau = data;
@@ -319,7 +330,7 @@ function refresh_screen() {
       });
       break;
     case ecran.new_devine:
-      socket.emit("requete prenoms plateau");
+      socket.emit("requete prenoms plateau", config.codeJ.toLowerCase());
       socket.once("reponse prenoms plateau", (prenoms) => {
         $("#prenoms").empty();
         addSelectVal(prenoms, "val0", "prenoms");
@@ -363,6 +374,7 @@ function refresh_screen() {
       break;
     case ecran.reponse:
       socket.once("reponse question", (reponse) => {
+        console.log(reponse);
         if(reponse == true) {
           $("h1").text("C'est vrai !");
         } else {
@@ -375,14 +387,32 @@ function refresh_screen() {
       });
       break;
     case ecran.winner:
-      if(config.type_de_partie == "Ordi") {
-        $("#winner").text("L'ordi a gagne !");
-      } else {
-        $("#winner").text(config.gagnant + " a gagne !");
+      switch(config.type_de_partie){
+        case "Ordi":
+          if (config.gagnant == null){
+            $("h1").text("L'ordi a gagne !");
+            socket.emit("requete plateau");
+            socket.on("reponse plateau", (data) =>{
+              $("#persoATrouver").text("Vous deviez trouver " + data[config.codeJ].personnage_cache.nom + " !");
+            });
+          } else {
+            $("h1").text(config.gagnant + " a gagne !");
+          }
+          break;
+        case "Solo":
+          $("h1").text(config.gagnant + " a gagne !");
+          break;
+        case "Multi":
+          $("h1").text(config.gagnant + " a gagne !");
+          if (config.gagnant != config.pseudo){
+            socket.emit("requete plateau");
+            socket.on("reponse plateau", (data) => {
+              $("#persoATrouver").text("Vous deviez trouver " + data[config.codeJ].personnage_cache.nom);
+            });
+          }
+          break;
       }
       $("#btn-suivant").on("click", () => {
-        /*ecran_actuel = ecran.newgame;
-        refresh_screen();*/
         location.reload();
       });
       break;
@@ -439,9 +469,9 @@ function getDate() {
   return res;
 }
 
-function sendToTchat(msg) {
+function sendToTchat(msg, tour) {
   let d = new Date();
-  let res = "<p>[";
+  let res = '<p class="text-' + tour + '">[';
   if(d.getHours() < 10) {
     res += "0";
   }
@@ -484,7 +514,7 @@ window.onbeforeunload = (event) => {
 };
 */
 
-socket.on("partie finie", (gagnant) => {
+socket.on("partie finie", gagnant => {
   if(config.type_de_partie == "Solo" && gagnant == null) {
     location.reload();
   } else {
@@ -495,11 +525,12 @@ socket.on("partie finie", (gagnant) => {
 });
 
 socket.on("refresh", (joueur) => {
+  console.log("refresh de " + joueur);
   if(joueur == config.codeJ.toLowerCase()) {
     refresh_screen();
   }
 });
 
-socket.on("ecrit tchat", (msg) => {
-  sendToTchat(msg);
+socket.on("ecrit tchat", (msg, tour) => {
+  sendToTchat(msg, tour);
 });
