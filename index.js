@@ -5,6 +5,8 @@ const app = express();
 const http = require("http").Server(app);
 const io = require("socket.io")(http);
 var parties = [];
+const lettres = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+
 
 function timeNow() {
   let d = new Date();
@@ -81,12 +83,6 @@ io.on("connection", (socket) => {
     };
     parties.push(room);
     socket.join(room);
-    let q = [...socket.rooms][1].game.j1.getQuestionOptimal();
-    let r = [...socket.rooms][1].game.j2.plateau.poser_question(q);
-    
-    //console.log("Question : " + q.fbf.toString(q.attributs) + " " + r + " " + [...socket.rooms][1].game.j1.plateau.personnage_cache.attributs[0].valeur);
-    //console.log(room.joueurs.J1.json.Tour);
-    
     room.joueurs.J1.json.Tour = "j1";
     //console.log(room.joueurs.J1.json.Tour);
     io.in(room).emit("partie créée");
@@ -130,37 +126,34 @@ io.on("connection", (socket) => {
   socket.on("lancement partie", () => {
     let room = [...socket.rooms][1];
     room.game = new partie(room.joueurs.J1.json['J1'],room.joueurs.J1.json['J2'],room.joueurs.J1.type_de_partie,room.joueurs.J1.mode_de_jeu,room.joueurs.J1.mode_de_jeu,0);
-    //let q = room.game.j1.getQuestionOptimal();
-    //let r = room.game.j2.plateau.poser_question(q);
-    //console.log("Question : " + q.fbf.toString(q.attributs) + " " + r + " " + room.game.j1.plateau.personnage_cache.attributs[0].valeur);
     io.in(room).emit("partie lancee");
   });
   
   // REQUETE PLATEAU EVENT
   socket.on("requete plateau", () => {
     let room = [...socket.rooms][1];
-    //console.log(room.game.save());
-    //console.log(JSON.parse('{"Tour":"' + room.joueurs.J1.json.Tour + '",' + room.game.save() + '}').J1.personnages[0]);
     socket.emit("reponse plateau", JSON.parse('{"Tour":"' + room.joueurs.J1.json.Tour + '",' + room.game.save() + '}'));
   });
 
   // REQUETE ATTR PLATEAU EVENT
-  socket.on("requete attributs plateau", () => {
-    socket.emit("reponse attributs plateau", attributsPlateau([...socket.rooms][1].game));
+  socket.on("requete attributs plateau", (codeJ) => {
+    let room = [...socket.rooms][1];
+    socket.emit("reponse attributs plateau", attributsPlateau(room.game,codeJ));
   });
 
-  socket.on("requete prenoms plateau", () => {
-    socket.emit("reponse prenoms plateau", prenomsPlateau([...socket.rooms][1].game));
+  socket.on("requete prenoms plateau", (codeJ) => {
+    let room = [...socket.rooms][1];
+    socket.emit("reponse prenoms plateau", prenomsPlateau(room.game,codeJ));
   });
   
   //QUESTION RECUE EVENT
   socket.on("pose question", (data) => {
-    //console.log("Question reçue : " + data);
     let room = [...socket.rooms][1];
     let reponse = room.game[room.joueurs.J1.json.Tour].plateau.poser_question(cree_question(data));
-    let msg = "Question de " + room.joueurs.J1.json.Tour + " : " + cree_question(data).fbf.toString(cree_question(data).attributs) + " -> " + reponse;
-    io.in(room).emit("ecrit tchat", msg);
-   if(data.lignes.length == 1 && data.lignes[0].attribut.nom == "prenom" && reponse == true) {
+    let msg = "Question de " + room.joueurs.J1.json.Tour + " : " + cree_question(data).fbf.toString(cree_question(data).attributs) + " nombre de personnages restants avant : " + room.game[room.joueurs.J1.json.Tour].plateau.compte_visible() + " -> " + reponse;
+    io.in(room).emit("ecrit tchat", msg, room.joueurs.J1.json.Tour);
+    socket.emit("reponse question", (reponse));
+    if(data.lignes.length == 1 && data.lignes[0].attribut.nom == "prenom" && reponse == true) {
       let gagnant;
       if(room.joueurs.J1.socketId == socket.id) {
         gagnant = room.joueurs.J1.pseudo;
@@ -168,30 +161,34 @@ io.on("connection", (socket) => {
         gagnant = room.joueurs.J2.pseudo;
       }
       io.in(room).emit("partie finie", gagnant);
-    } else { //console.log(room.game[room.joueurs.J1.json.Tour].plateau.personnage_cache.attributs[0].valeur + " : " + reponse);
-    //console.log("c'était à " + room.joueurs.J1.json.Tour);
-    if(room.joueurs.J1.type_de_partie != "Solo") {
-      if(room.joueurs.J1.type_de_partie == "Ordi"){
-        
-        let question_ordi = room.game['j2'].getQuestionOptimal();
-        let result = room.game.j2.plateau.poser_question(question_ordi);
-        let msg = "Question de l'ordinateur :"+ question_ordi.fbf.toString(question_ordi.attributs)+" nombre de personnages restants : " +room.game.j2.plateau.compte_visible();
-        socket.emit("ecrit tchat",msg);
-        if(question_ordi.attributs[0].nom == 'prenom' && result){
-          //console.log('win ordi')
-          io.in(room).emit("partie finie", 'ordi')
+    } else {
+      console.log("c'était à " + room.joueurs.J1.json.Tour);
+      if(room.joueurs.J1.type_de_partie != "Solo") {
+        if(room.joueurs.J1.type_de_partie == "Ordi"){
+          let question_ordi = room.game['j2'].getQuestionOptimal();
+          let result = room.game.j2.plateau.poser_question(question_ordi);
+          let msg = "Question de l'ordinateur : " +  question_ordi.fbf.toString(question_ordi.attributs) + " nombre de personnages restants : " + room.game.j2.plateau.compte_visible() + " -> " + result;
+          socket.emit("ecrit tchat", msg, "j2");
+          if(question_ordi.attributs[0].nom == 'prenom' && result){
+            console.log('win ordi')
+            io.in(room).emit("partie finie", 'ordi')
+          }
+        } else {
+          if(room.joueurs.J1.json.Tour == "j1") {
+            room.joueurs.J1.json.Tour = "j2";
+          } else {
+            room.joueurs.J1.json.Tour = "j1";
+          }
         }
-      }else{     
-      if(room.joueurs.J1.json.Tour == "j1") {
-        room.joueurs.J1.json.Tour = "j2";
+      }
+      console.log("c'est maintenant à " + room.joueurs.J1.json.Tour);
+      let joueur_a_refresh;
+      if(room.joueurs.J1.type_de_partie != "Multi") {
+        joueur_a_refresh = "nobody";
       } else {
-        room.joueurs.J1.json.Tour = "j1";
+        joueur_a_refresh = room.joueurs.J1.json.Tour;
       }
-      }
-    }
-    //console.log("c'est maintenant à " + room.joueurs.J1.json.Tour);
-    io.in(room).emit("refresh", room.joueurs.J1.json.Tour);
-    socket.emit("reponse question", (reponse));
+      io.in(room).emit("refresh", joueur_a_refresh);
     }
   });
   
@@ -215,7 +212,7 @@ io.on("connection", (socket) => {
   socket.on("changer visibilite", (data) => {
     let index = data.i;
     let codeJ= data.codeJ.toLowerCase();
-    //console.log("je change la visi de " + index + " pour le " + codeJ);
+    console.log("je change la visi de " + index + " pour le " + codeJ);
     let room = [...socket.rooms][1];
     //console.log(index + " : " + room.game[codeJ].plateau.personnages[index].visible);
     room.game[codeJ].plateau.toggle_visible(index);
@@ -225,9 +222,9 @@ io.on("connection", (socket) => {
 
   // Evaluation Question
   socket.on("evaluation", (data) => {
-    // Step pour la classification des question
+    // Step pour la classification des question en %
     let taux_error = 0.15;
-    //    
+    //
     let question = cree_question(data);
     let room = [...socket.rooms][1];
     let nb_concerne = room.game[room.joueurs.J1.json.Tour].plateau.compte_personage_concerne(question);
@@ -236,12 +233,17 @@ io.on("connection", (socket) => {
       bid = Math.floor(room.game[room.joueurs.J1.json.Tour].plateau.compte_visible() / 2 );
     }else{
       let m;
+      let n = room.game[room.joueurs.J1.json.Tour].plateau.compte_visible()
       if(room.joueurs.J1.json.Tour == 'j1'){        
-      m = room.game['j2'].plateau.compte_personage_concerne(new_question);
+      m = room.game['j2'].plateau.compte_visible();      
       }else{
-      m = room.game['j1'].plateau.compte_personage_concerne(new_question);
+      m = room.game['j1'].plateau.compte_visible();      
       }
-      bid = this.getBid(this.plateau.personnages,nb_concerne,m);
+      if(n <2 || m < 2){
+        bid = 1
+      }else{        
+      bid = room.game[room.joueurs.J1.json.Tour].getBid(room.game[room.joueurs.J1.json.Tour].plateau.personnages,n,m);
+      }
     }
     let cas;
     let ratio;
@@ -270,12 +272,13 @@ io.on("connection", (socket) => {
   })
 
   // QUESTION AUTO EVENT
-  socket.on("Question auto",() =>{
+  socket.on("Question auto", () =>{
     let room = [...socket.rooms][1];
     let question = room.game[room.joueurs.J1.json.Tour].getQuestionOptimal();
     let reponse =     room.game[room.joueurs.J1.json.Tour].plateau.poser_question(question);
-    let msg = "Question de " + room.joueurs.J1.json.Tour + " : " + question.fbf.toString(question.attributs);
-    io.in(room).emit("ecrit tchat", msg);
+    let msg = "Question de " + room.joueurs.J1.json.Tour + " : " + question.fbf.toString(question.attributs) + " nombre de personnages restants : " + room.game[room.joueurs.J1.json.Tour].plateau.compte_visible() + " -> " + reponse;
+    io.in(room).emit("ecrit tchat", msg, room.joueurs.J1.json.Tour);
+    socket.emit("reponse question", (reponse));
        if(question.attributs.length == 1 && question.attributs[0].nom == "prenom" && reponse == true) {
         let gagnant;
         if(room.joueurs.J1.socketId == socket.id) {
@@ -285,16 +288,16 @@ io.on("connection", (socket) => {
         }
         io.in(room).emit("partie finie", gagnant);
       } else { 
-      //console.log("c'était à " + room.joueurs.J1.json.Tour);
+      console.log("c'était à " + room.joueurs.J1.json.Tour);
       if(room.joueurs.J1.type_de_partie != "Solo") {
         if(room.joueurs.J1.type_de_partie == "Ordi"){
           
           let question_ordi = room.game['j2'].getQuestionOptimal();
           let result = room.game.j2.plateau.poser_question(question_ordi);
-          let msg = "Question de l'ordinateur :"+ question_ordi.fbf.toString(question_ordi.attributs)+" nombre de personnages restants : " +room.game.j2.plateau.compte_visible();
-          socket.emit("ecrit tchat",msg);
+          let msg = "Question de l'ordinateur : " + question_ordi.fbf.toString(question_ordi.attributs) + " nombre de personnages restants : " + room.game.j2.plateau.compte_visible() + " -> " + result;
+          socket.emit("ecrit tchat", msg, "j2");
           if(question_ordi.attributs[0].nom == 'prenom' && result){
-            //console.log('win ordi');
+            console.log('win ordi');
             io.in(room).emit("partie finie", 'ordi');
           }
         }else{     
@@ -305,9 +308,14 @@ io.on("connection", (socket) => {
         }
         }
       }
-      //console.log("c'est maintenant à " + room.joueurs.J1.json.Tour);
-      io.in(room).emit("refresh", room.joueurs.J1.json.Tour);
-      socket.emit("reponse question", (reponse));
+      console.log("c'est maintenant à " + room.joueurs.J1.json.Tour);
+      let joueur_a_refresh;
+      if(room.joueurs.J1.type_de_partie == "Solo") {
+        joueur_a_refresh = "nobody";
+      } else {
+        joueur_a_refresh = room.joueurs.J1.json.Tour;
+      }
+      io.in(room).emit("refresh", joueur_a_refresh);
       }
   });
   
@@ -317,14 +325,18 @@ io.on("connection", (socket) => {
     let gagnant;
     for(p in parties) {
       if(parties[p].joueurs.J1.type_de_partie == "Multi"){
-        if(parties[p].joueurs.J1.socketId == socket.id) {
-          gagnant = parties[p].joueurs.J1.adversaire;
-          io.in(parties[p]).emit("partie finie", gagnant);
+        if(parties[p].joueurs.J2 == undefined) {
           parties.splice(p,1);
-        } else if(parties[p].joueurs.J2.socketId == socket.id) {
-          gagnant = parties[p].joueurs.J2.adversaire;
-          io.in(parties[p]).emit("partie finie", gagnant);
-          parties.splice(p,1);
+        } else {
+          if(parties[p].joueurs.J1.socketId == socket.id) {
+            gagnant = parties[p].joueurs.J1.adversaire;
+            io.in(parties[p]).emit("partie finie", gagnant);
+            parties.splice(p,1);
+          } else if(parties[p].joueurs.J2.socketId == socket.id) {
+            gagnant = parties[p].joueurs.J2.adversaire;
+            io.in(parties[p]).emit("partie finie", gagnant);
+            parties.splice(p,1);
+          }
         }
       } else {
         if(parties[p].joueurs.J1.socketId == socket.id) {
@@ -342,14 +354,27 @@ http.listen(8000, () => {
   console.log("Ecoute sur l'url : http://localhost:8000");
 });
 
+
 function NewID() {
-  return Math.floor(Math.random() * (999999 - 100000)) + 100000;
+  let idCree = false;
+  let id;
+  while(!idCree) {
+    idCree = true;
+    id = lettres[Math.floor(Math.random() * lettres.length)]+lettres[Math.floor(Math.random() * lettres.length)]+lettres[Math.floor(Math.random() * lettres.length)]+lettres[Math.floor(Math.random() * lettres.length)];
+    parties.forEach((p) => {
+      if(p.idPartie == id) {
+        idCree = false;
+      }
+    });
+  }
+  return id;
 }
 
-function attributsPlateau(game){
+
+function attributsPlateau(game,codeJ){
   let res = {};
-  let atts = game.j1.getAllAttributs(game.j1.plateau.personnages)
-  let attributs_nom = game.j1.plateau.attributs
+  let atts = game[codeJ].getAllAttributs(game[codeJ].plateau.personnages)
+  let attributs_nom = game[codeJ].plateau.attributs
 
   for(nom_att of attributs_nom){
     res[nom_att.nom]=[]
@@ -365,9 +390,9 @@ function attributsPlateau(game){
   return res;
 }
 
-function prenomsPlateau(game){
+function prenomsPlateau(game,codeJ){
   let prenoms = [];
-  for(p of game.j1.plateau.personnages){
+  for(p of game[codeJ].plateau.personnages){
     if(p.visible == "true"){      
       prenoms.push(p.attributs[0].valeur);
     }
