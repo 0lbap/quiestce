@@ -265,6 +265,7 @@ select {
 }
 
 .nom_perso {
+  width: max-content;
   position: absolute;
   bottom: -35%;
   left: 50%;
@@ -344,11 +345,12 @@ select {
 }
 
 #tchat {
-  background-color: rgba(0,0,0,0.2);
-  height: 8em;
+  background-color: rgba(255, 255, 255, 0.50);
+  height: 12em;
   width: 20em;
   overflow: auto;
   padding: 1em;
+  border-radius: 5px;
 }
 
 #tchat p {
@@ -370,4 +372,21 @@ a {
 
 .text-red {
   color: red;
+}
+
+.text-j1 {
+  color: #0ab9e6;
+}
+
+.text-j2 {
+  color: #ff3c28;
+}
+
+.icon, .text{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icon {
+  margin-right: 0.5em;
 }
