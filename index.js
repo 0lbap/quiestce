@@ -323,28 +323,38 @@ io.on("connection", (socket) => {
   socket.on("disconnect", function () {
     console.log(timeNow() + " " + socket.id + " s'est déconnecté");
     let gagnant;
+    let idRoomASuppr;
     for(p in parties) {
       if(parties[p].joueurs.J1.type_de_partie == "Multi"){
-        if(parties[p].joueurs.J2 == undefined) {
-          parties.splice(p,1);
+        //console.log("en multi");
+        if(parties[p].joueurs.J1.socketId == socket.id) {
+          //console.log("on est le j1 et la partie est " + parties[p].idPartie);
+          gagnant = parties[p].joueurs.J1.adversaire;
+          io.in(parties[p]).emit("partie finie", gagnant);
+          idRoomASuppr = p;
         } else {
-          if(parties[p].joueurs.J1.socketId == socket.id) {
-            gagnant = parties[p].joueurs.J1.adversaire;
-            io.in(parties[p]).emit("partie finie", gagnant);
-            parties.splice(p,1);
-          } else if(parties[p].joueurs.J2.socketId == socket.id) {
-            gagnant = parties[p].joueurs.J2.adversaire;
-            io.in(parties[p]).emit("partie finie", gagnant);
-            parties.splice(p,1);
+          if(parties[p].joueurs.J2 != undefined) {
+            if(parties[p].joueurs.J2.socketId == socket.id) {
+              //console.log("on est le j2 et la partie est " + p);
+              gagnant = parties[p].joueurs.J2.adversaire;
+              io.in(parties[p]).emit("partie finie", gagnant);
+              idRoomASuppr = p;
+            }
           }
         }
       } else {
+        //console.log("pas en multi");
         if(parties[p].joueurs.J1.socketId == socket.id) {
           gagnant = parties[p].joueurs.J1.adversaire;
-          parties.splice(p,1);
+          idRoomASuppr = p;
         }
       }
     }
+    //console.log("index room a suppr = " + idRoomASuppr);
+    if (idRoomASuppr != undefined) {
+      parties.splice(idRoomASuppr,1);
+    }
+    console.log(parties);
   });
 });
 // FIN SOCKET IO //
