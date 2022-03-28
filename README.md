@@ -97,7 +97,11 @@ En partant de rien, vous devrez ajouter au moins un attribut pour différencier 
 
 Pour créer une nouvelle possibilité d'attribut, cliquez sur le _+_ de la section _Attributs possibles_. Entrez un nom puis cliquez sur _Valider_. Vous pouvez supprimer un attribut possible en cliquant sur la croix correspondante, ou tous les attributs en cliquant sur _Reset_.
 
-Chaque personnage, son nom ainsi que son image correspondante, est affiché dans la section _Personnages_. Pour créer un personnage, cliquez sur le _+_ de la section _Personnages_. Vous pouvez cliquer sur un personnage pour le visualiser : vous aurez ainsi accès aux champs _Nom_, _Image_ et autant de champs d'attributs que vous avez créé. Quand vous avez terminé de modifier un personnage, cliquez sur _Valider_. Vous pouvez aussi _Supprimer_ un personnage.
+Chaque personnage, son nom ainsi que son image correspondante, est affiché dans la section _Personnages_. Pour créer un personnage, cliquez sur le _+_ de la section _Personnages_. Vous pouvez cliquer sur un personnage pour le visualiser : vous aurez ainsi accès aux champs _Nom_, _Image_ et autant de champs d'attributs que vous avez créé.
+
+> Note : Vous pouvez entrer plusieurs valeurs pour un attribut en les séparant par des virgules.
+
+Quand vous avez terminé de modifier un personnage, cliquez sur _Valider_. Vous pouvez aussi _Supprimer_ un personnage.
 
 > Note : Si vous ne remplissez pas le champ _Nom_, un nom "Perso n°x" sera automatiquement attribué.
 
