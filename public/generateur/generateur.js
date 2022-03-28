@@ -61,7 +61,7 @@ function delete_attribut(id) {
   //delete attributs
   container.removeChild(container.children[id]);
   attributs.splice(id, 1);
-  // edit des attribtus d' index > id
+  // edit des attribtus d'index > id
   index_attributs--;
   for (const child of container.children) {
     if (child.firstChild.id.split("_")[1] > id) {
@@ -101,7 +101,7 @@ function valider_attribut() {
 
   attributs = [];
   for (let i = 0; i < index_attributs; i++) {
-    let value_imput = document.getElementById("attribut_" + i).value;
+    let value_imput = document.getElementById("attribut_" + i).value.trim();
     let att = new attribut(value_imput, "null");
     attributs.push(att);
   }
@@ -231,6 +231,10 @@ function valider_perso_attribut(id) {
     perso.attributs[i].valeur = document
       .getElementById("attribut_" + i + "_perso_" + id)
       .value.split(",");
+      /*for(const valeur of  perso.attributs[i].valeur){
+        valeur = valeur.trim();
+      }*/
+      perso.attributs[i].valeur = perso.attributs[i].valeur.map(v => {return v.trim();});
   }
 
   // push dans personnages
@@ -256,22 +260,28 @@ function valider_perso_attribut(id) {
 
 //check_validitite_plateau renvoi 1 si le plateau est valide sinon un array décrivant l'error
 function check_validitite_plateau() {
-  //check si il ya des attribut
+  //check s'il ya des attributs
   if (attributs.length == 0) {
     return [0];
   }
   if (personnages.length == 0) {
     return [-7];
   }
-  //check si tout les attributs sont differents
-  for (i in attributs) {
-    for (j in attributs) {
+  //check si tous les attributs sont differents
+  for (const i in attributs) {
+    for (const j in attributs) {
       if (i != j && attributs[i].nom == attributs[j].nom) {
         return [-6];
       }
     }
   }
-  //check si une bulle de modificatio nde personnage est ouverte
+  //check si aucun attribut n'est pas definit
+  for(const i in attributs){
+    if(attributs[i].nom == ""){
+      return[-8,i]
+    }
+  }
+  //check si une bulle de modification de personnage est ouverte
   if (document.getElementsByClassName("popup").length != 0) {
     return [-1];
   }
@@ -294,14 +304,12 @@ function check_validitite_plateau() {
       return [-4, personnages.indexOf(p)];
     }
     for (const a of p.attributs) {
-      let b = Object.entries(a.valeur);
-      console.log()
-      if (b == "") {
+      if (a.valeur == "") {
         return [-4, personnages.indexOf(p)];
       }
     }
   }
-  //check si tous les personnages sont disernable par leur attributs
+  //check si tous les personnages sont disernables par leur attributs
   for (const p_1 of personnages) {
     for (const p_2 of personnages) {
       if (personnages.indexOf(p_1) != personnages.indexOf(p_2)) {
@@ -388,6 +396,9 @@ function toJson() {
       case -7:
         div_json.textContent = "Erreur : Aucun personnages n'a été definit";
         break;
+      case -8:
+        div_json.textContent = "Erreur : l'attribut n°"+result_validite[1] +" n'est pas definit";
+        break;
       default:
         div_json.textContent = "Erreur : Erreur inconue";
         break;
@@ -438,7 +449,7 @@ function donwload_json() {
   download(
     "Quiestce.json",
     JSON.stringify(JSON.parse(document.getElementById("json").textContent))
-  ); // stringify de parse : remise du json en format compact sans espaces
+  ); // stringify de parse : remise du json en format compact sans espace
 }
 
 function download(filename, text) {
