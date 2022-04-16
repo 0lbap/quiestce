@@ -70,7 +70,11 @@ class fbf {
     if (Number.isInteger(this.value.fbf1)) {
       result = this.value.fbf1;
       if (Array.isArray(atts)) {
+        if(atts[result].nom == "prenom"){          
+        result = "{ nom = " + atts[result].valeur + "}";
+        }else{        
         result = "{" + atts[result].nom + " = " + atts[result].valeur + "}";
+        }
       }
       return result;
     }
@@ -147,7 +151,7 @@ class joueur {
 
   //methodes pout la génération de la question optimal
   // calcul du k+1 pour cf stratégie   https://arxiv.org/pdf/1509.03327.pdf?fbclid=IwAR3FvDtOjkcndTbTJhrucQcAVjX8BkRBpNUn37DA4MAJ8z5q8Nis74rx_18
-  getKplus(n, m) {
+  getNextPowerOf2(n, m) {
     if (n <= m) {
       return Math.pow(2, Math.ceil(Math.log2(n)));
     } else {
@@ -165,7 +169,7 @@ class joueur {
         return -1;
       }
     }
-    let kpls = this.getKplus(n, m);
+    let kpls = this.getNextPowerOf2(n, m);
     let k = kpls / 2;
     if (n >= kpls + 1 && k + 1 <= m && m <= kpls) {
       return parseInt(Math.pow(2, Math.floor(Math.log2(m - 1))));
@@ -177,7 +181,7 @@ class joueur {
     }
   }
 
-  getQuestionOptimal() {
+  getQuestionOptimal(mdj) {
     // applciation difficulté & calcul du bid a faire
     let n = 0;
     let m = 0;
@@ -191,16 +195,28 @@ class joueur {
     if(this.partie.tdp == "Solo"){
       bid = Math.floor( 1/2 * n);
     }else{
-    for (let p of this.partie.j2.plateau.personnages) {
-      if (p.visible == "true") {
-        m++;
+    if(this.codej == 1){
+            for (let p of this.partie.j2.plateau.personnages) {
+                if (p.visible == "true") {
+                  m++;
+                }
+          }
+        }else{
+            for (let p of this.partie.j1.plateau.personnages) {
+                if (p.visible == "true") {
+                  m++;
+                }
+          }
+      
       }
-    }
-    bid =
-      this.getBid(this.plateau.personnages, n, m) +
-      Math.floor(
-        Math.random() * (0.125 * this.plateau.compte_visible()) *this.partie.diff_ordi
-      );
+      bid = this.getBid(this.plateau.personnages,n,m);
+      if(mdj != modeDeJeu.triche){
+            let random = Math.random() * this.partie.diff_ordi
+            if (random > 0.75) {
+                bid = n;
+            }
+      }
+
     }
     if (bid < 1) {
       bid = 1;
@@ -217,7 +233,7 @@ class joueur {
         }
       }
     } else {      
-      return this.getQuestion(this.plateau.personnages, bid);
+      return this.initQuestion(this.plateau.personnages, bid);
     }
   }
 
@@ -270,7 +286,7 @@ class joueur {
     return attributs;
   }
 
-  getQuestion(personnages, bid) {
+  initQuestion(personnages, bid) {
     let questions = [];
     let attributs_possible = this.getAllAttributs(personnages);
     for (let att of attributs_possible) {
@@ -279,14 +295,13 @@ class joueur {
       questions.push([q, concerne, 1000 * concerne, 0]);
       // question[0] est la question question[1/2] est le nombre de personnage concerné par la question , question[3] est si la question a était utilsié pour en généré d'autres
     }
-    return this.genereArbreQuestions(questions, bid, 5);
+    return this.genereArbreQuestions(questions, bid,3);
   }
 
   genereArbreQuestions(questions,bid,iteration){
 // question[0] est la question question[1] est le nombre de personnage concerné par la question, question[2] idem mais de la question mère a celle-ci , question[] est si la question a était utilsié pour en généré d'autres
 //check ancienne question
   if(iteration == 0){
-    console.log("nb d'iteration pour génération de question dépasé")
     let diff = bid
     let q = questions[0] 
     for(const question of questions){
@@ -295,14 +310,12 @@ class joueur {
         q = question
        }
     }
-    //console.log(q)
     return q[0]
     
   }
   
   for(const question of questions){
-    if(question[1]  >=  bid-(bid*0.1) && question[1]  <=  bid+(bid*0.1) ){
-      //console.log(question)
+    if(question[1]  >=  bid-(bid*0.1) && question[1]  <=  bid+(bid*0.1) ){ 
       return question[0]
     }    
   }
