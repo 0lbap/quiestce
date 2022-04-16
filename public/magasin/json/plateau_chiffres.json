@@ -1,0 +1,617 @@
+{
+  "Tour": "undefined",
+  "J1": {
+    "personnage_cache": {
+      "nom": "-1"
+    },
+    "personnages": [
+      {
+        "nom": "0",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570095.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Pair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Non"
+            ]
+          },
+          {
+            "Couleur": [
+              "Froide"
+            ]
+          },
+          {
+            "Valeur": [
+              "Inférieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "1",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570098.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Impair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Oui"
+            ]
+          },
+          {
+            "Couleur": [
+              "Chaude",
+              "Froide"
+            ]
+          },
+          {
+            "Valeur": [
+              "Inférieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "2",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570100.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Pair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Oui"
+            ]
+          },
+          {
+            "Couleur": [
+              "Chaude"
+            ]
+          },
+          {
+            "Valeur": [
+              "Inférieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "3",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570103.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Impair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Oui"
+            ]
+          },
+          {
+            "Couleur": [
+              "Froide"
+            ]
+          },
+          {
+            "Valeur": [
+              "Inférieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "4",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570104.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Pair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Non"
+            ]
+          },
+          {
+            "Couleur": [
+              "Chaude"
+            ]
+          },
+          {
+            "Valeur": [
+              "Inférieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "5",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570107.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Impair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Oui"
+            ]
+          },
+          {
+            "Couleur": [
+              "Froide"
+            ]
+          },
+          {
+            "Valeur": [
+              "Inférieure à 5",
+              "Supérieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "6",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570112.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Pair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Non"
+            ]
+          },
+          {
+            "Couleur": [
+              "Chaude"
+            ]
+          },
+          {
+            "Valeur": [
+              "Supérieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "7",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570115.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Impair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Oui"
+            ]
+          },
+          {
+            "Couleur": [
+              "Froide"
+            ]
+          },
+          {
+            "Valeur": [
+              "Supérieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "8",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570118.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Pair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Non"
+            ]
+          },
+          {
+            "Couleur": [
+              "Chaude",
+              "Froide"
+            ]
+          },
+          {
+            "Valeur": [
+              "Supérieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "9",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570120.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Impair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Non"
+            ]
+          },
+          {
+            "Couleur": [
+              "Chaude"
+            ]
+          },
+          {
+            "Valeur": [
+              "Supérieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "10",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/4020/4020020.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Pair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Non"
+            ]
+          },
+          {
+            "Couleur": [
+              "Froide"
+            ]
+          },
+          {
+            "Valeur": [
+              "Supérieure à 5"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "J2": {
+    "personnage_cache": {
+      "nom": "-1"
+    },
+    "personnages": [
+      {
+        "nom": "0",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570095.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Pair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Non"
+            ]
+          },
+          {
+            "Couleur": [
+              "Froide"
+            ]
+          },
+          {
+            "Valeur": [
+              "Inférieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "1",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570098.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Impair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Oui"
+            ]
+          },
+          {
+            "Couleur": [
+              "Chaude",
+              "Froide"
+            ]
+          },
+          {
+            "Valeur": [
+              "Inférieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "2",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570100.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Pair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Oui"
+            ]
+          },
+          {
+            "Couleur": [
+              "Chaude"
+            ]
+          },
+          {
+            "Valeur": [
+              "Inférieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "3",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570103.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Impair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Oui"
+            ]
+          },
+          {
+            "Couleur": [
+              "Froide"
+            ]
+          },
+          {
+            "Valeur": [
+              "Inférieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "4",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570104.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Pair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Non"
+            ]
+          },
+          {
+            "Couleur": [
+              "Chaude"
+            ]
+          },
+          {
+            "Valeur": [
+              "Inférieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "5",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570107.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Impair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Oui"
+            ]
+          },
+          {
+            "Couleur": [
+              "Froide"
+            ]
+          },
+          {
+            "Valeur": [
+              "Inférieure à 5",
+              "Supérieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "6",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570112.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Pair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Non"
+            ]
+          },
+          {
+            "Couleur": [
+              "Chaude"
+            ]
+          },
+          {
+            "Valeur": [
+              "Supérieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "7",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570115.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Impair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Oui"
+            ]
+          },
+          {
+            "Couleur": [
+              "Froide"
+            ]
+          },
+          {
+            "Valeur": [
+              "Supérieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "8",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570118.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Pair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Non"
+            ]
+          },
+          {
+            "Couleur": [
+              "Chaude",
+              "Froide"
+            ]
+          },
+          {
+            "Valeur": [
+              "Supérieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "9",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/3570/3570120.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Impair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Non"
+            ]
+          },
+          {
+            "Couleur": [
+              "Chaude"
+            ]
+          },
+          {
+            "Valeur": [
+              "Supérieure à 5"
+            ]
+          }
+        ]
+      },
+      {
+        "nom": "10",
+        "visible": "true",
+        "img": "https://cdn-icons-png.flaticon.com/512/4020/4020020.png",
+        "attributs": [
+          {
+            "Parité": [
+              "Pair"
+            ]
+          },
+          {
+            "Nombre premier": [
+              "Non"
+            ]
+          },
+          {
+            "Couleur": [
+              "Froide"
+            ]
+          },
+          {
+            "Valeur": [
+              "Supérieure à 5"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
