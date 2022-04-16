@@ -32,7 +32,17 @@ h1,h2{
 @media (min-width: 1250px) {
   .card-container{
     display: grid;
-    grid-template-columns: repeat(4,auto);
+    grid-template-columns: repeat(3,auto);
+    grid-template-rows: repeat(2,auto);
+    gap: 5em;
+    padding: 2em;
+  }
+}
+
+@media (min-width: 1700px) {
+  .card-container{
+    display: grid;
+    grid-template-columns: repeat(5,auto);
     grid-template-rows: repeat(1,auto);
     gap: 5em;
     padding: 2em;
