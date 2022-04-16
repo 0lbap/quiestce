@@ -10,7 +10,21 @@ const lettres = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"
 
 function timeNow() {
   let d = new Date();
-  return "[" + (d.getHours()+1).toString() + ":" + d.getMinutes() + ":" + d.getSeconds() + "]";
+  let res = "[";
+  if((d.getHours()+1)<10) {
+    res += "0";
+  }
+  res += (d.getHours()+1).toString() + ":";
+  if(d.getMinutes()<10) {
+    res += "0";
+  }
+  res += d.getMinutes().toString() + ":";
+  if(d.getSeconds()<10) {
+    res += "0";
+  }
+  res += d.getSeconds().toString();
+  res += "]";
+  return res;
 }
 
 
@@ -83,6 +97,12 @@ io.on("connection", (socket) => {
     };
     parties.push(room);
     socket.join(room);
+    //let q = [...socket.rooms][1].game.j1.getQuestionOptimal(modeDeJeu.ordi);
+    //let r = [...socket.rooms][1].game.j2.plateau.poser_question(q);
+    
+    //console.log("Question : " + q.fbf.toString(q.attributs) + " " + r + " " + [...socket.rooms][1].game.j1.plateau.personnage_cache.attributs[0].valeur);
+    //console.log(room.joueurs.J1.json.Tour);
+    
     room.joueurs.J1.json.Tour = "j1";
     //console.log(room.joueurs.J1.json.Tour);
     io.in(room).emit("partie créée");
@@ -99,11 +119,14 @@ io.on("connection", (socket) => {
     socket.join(room);
     room.joueurs.J1.json.Tour = ["j1","j2"][Math.floor(Math.random() * 2)];
     io.in(room).emit("partie créée",id);
+    //console.log("Nouvelle partie créée : " + id);
+    //console.log(parties);
   });
 
   //JOUEUR REJOINS UNE PARTIE EVENT
   socket.on("rejoindre partie", (config, idTape) => {
     let partie;
+    //console.log(parties.length);
     parties.forEach((p) => {
       if (p.idPartie == idTape){
         partie = p;
@@ -126,12 +149,17 @@ io.on("connection", (socket) => {
   socket.on("lancement partie", () => {
     let room = [...socket.rooms][1];
     room.game = new partie(room.joueurs.J1.json['J1'],room.joueurs.J1.json['J2'],room.joueurs.J1.type_de_partie,room.joueurs.J1.mode_de_jeu,room.joueurs.J1.mode_de_jeu,0);
+    //let q = room.game.j1.getQuestionOptimal(modeDeJeu.ordi);
+    //let r = room.game.j2.plateau.poser_question(q);
+    //console.log("Question : " + q.fbf.toString(q.attributs) + " " + r + " " + room.game.j1.plateau.personnage_cache.attributs[0].valeur);
     io.in(room).emit("partie lancee");
   });
   
   // REQUETE PLATEAU EVENT
   socket.on("requete plateau", () => {
     let room = [...socket.rooms][1];
+    //console.log(room.game.save());
+    //console.log(JSON.parse('{"Tour":"' + room.joueurs.J1.json.Tour + '",' + room.game.save() + '}').J1.personnages[0]);
     socket.emit("reponse plateau", JSON.parse('{"Tour":"' + room.joueurs.J1.json.Tour + '",' + room.game.save() + '}'));
   });
 
@@ -145,9 +173,16 @@ io.on("connection", (socket) => {
     let room = [...socket.rooms][1];
     socket.emit("reponse prenoms plateau", prenomsPlateau(room.game,codeJ));
   });
+
+  // SEND MSG EVENT
+  socket.on("send msg", (msg, codeJ) => {
+    let room = [...socket.rooms][1];
+    io.in(room).emit("ecrit tchat", msg, codeJ);
+  });
   
   //QUESTION RECUE EVENT
   socket.on("pose question", (data) => {
+    //console.log("Question reçue : " + data);
     let room = [...socket.rooms][1];
     let reponse = room.game[room.joueurs.J1.json.Tour].plateau.poser_question(cree_question(data));
     let msg = "Question de " + room.joueurs.J1.json.Tour + " : " + cree_question(data).fbf.toString(cree_question(data).attributs) + " nombre de personnages restants avant : " + room.game[room.joueurs.J1.json.Tour].plateau.compte_visible() + " -> " + reponse;
@@ -161,11 +196,11 @@ io.on("connection", (socket) => {
         gagnant = room.joueurs.J2.pseudo;
       }
       io.in(room).emit("partie finie", gagnant);
-    } else {
+    } else { //console.log(room.game[room.joueurs.J1.json.Tour].plateau.personnage_cache.attributs[0].valeur + " : " + reponse);
       //console.log("c'était à " + room.joueurs.J1.json.Tour);
       if(room.joueurs.J1.type_de_partie != "Solo") {
         if(room.joueurs.J1.type_de_partie == "Ordi"){
-          let question_ordi = room.game['j2'].getQuestionOptimal();
+          let question_ordi = room.game['j2'].getQuestionOptimal(modeDeJeu.ordi);
           let result = room.game.j2.plateau.poser_question(question_ordi);
           let msg = "Question de l'ordinateur : " +  question_ordi.fbf.toString(question_ordi.attributs) + " nombre de personnages restants : " + room.game.j2.plateau.compte_visible() + " -> " + result;
           socket.emit("ecrit tchat", msg, "j2");
@@ -224,7 +259,7 @@ io.on("connection", (socket) => {
   socket.on("evaluation", (data) => {
     // Step pour la classification des question en %
     let taux_error = 0.15;
-    //
+    //    
     let question = cree_question(data);
     let room = [...socket.rooms][1];
     let nb_concerne = room.game[room.joueurs.J1.json.Tour].plateau.compte_personage_concerne(question);
@@ -274,7 +309,7 @@ io.on("connection", (socket) => {
   // QUESTION AUTO EVENT
   socket.on("Question auto", () =>{
     let room = [...socket.rooms][1];
-    let question = room.game[room.joueurs.J1.json.Tour].getQuestionOptimal();
+    let question = room.game[room.joueurs.J1.json.Tour].getQuestionOptimal(modeDeJeu.triche);
     let reponse =     room.game[room.joueurs.J1.json.Tour].plateau.poser_question(question);
     let msg = "Question de " + room.joueurs.J1.json.Tour + " : " + question.fbf.toString(question.attributs) + " nombre de personnages restants : " + room.game[room.joueurs.J1.json.Tour].plateau.compte_visible() + " -> " + reponse;
     io.in(room).emit("ecrit tchat", msg, room.joueurs.J1.json.Tour);
@@ -292,7 +327,7 @@ io.on("connection", (socket) => {
       if(room.joueurs.J1.type_de_partie != "Solo") {
         if(room.joueurs.J1.type_de_partie == "Ordi"){
           
-          let question_ordi = room.game['j2'].getQuestionOptimal();
+          let question_ordi = room.game['j2'].getQuestionOptimal(modeDeJeu.ordi);
           let result = room.game.j2.plateau.poser_question(question_ordi);
           let msg = "Question de l'ordinateur : " + question_ordi.fbf.toString(question_ordi.attributs) + " nombre de personnages restants : " + room.game.j2.plateau.compte_visible() + " -> " + result;
           socket.emit("ecrit tchat", msg, "j2");
@@ -354,14 +389,14 @@ io.on("connection", (socket) => {
     if (idRoomASuppr != undefined) {
       parties.splice(idRoomASuppr,1);
     }
-    console.log(parties);
+    //console.log(parties);
   });
 });
 // FIN SOCKET IO //
 
 
 http.listen(8000, () => {
-  console.log("Ecoute sur l'url : http://localhost:8000");
+  console.log(timeNow() + " Ecoute sur l'url : http://localhost:8000");
 });
 
 
