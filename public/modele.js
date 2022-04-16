@@ -181,9 +181,10 @@ function refresh_screen() {
       break;
     case ecran.join_game:
         let suivant2 = function () {
-          let code = $("input").val().toUpperCase();
+          let code = $("#codePartie").val().toUpperCase();
           if(code.length == 4 && code.match(/^[a-z]+$/i)) {
             socket.emit("rejoindre partie", config, code);
+            $("body").unbind("keypress");
             ecran_actuel = ecran.waiting_room;
             refresh_screen();
           } else {
@@ -250,10 +251,12 @@ function refresh_screen() {
           $("#btn-new_devine").attr("disabled","disabled");
           $("#tour").text("C'est au tour de ton adversaire...");
           sendToTchat("Tour adverse.", data.Tour);
+          console.log("tour adverse");
           $("#sablier").show();
         } else {
           $("#tour").text("C'est a toi !");
           sendToTchat("Votre tour.", data.Tour);
+          console.log("votre rour");
           $("#sablier").hide();
         }
       });
@@ -274,6 +277,18 @@ function refresh_screen() {
           download("Partie du " + getDate(), JSON.stringify(plateau));
         });
       });
+      let suivant3 = function(){
+        let msg = $("#msg").val().trim();
+        if(msg.length <= 75 && msg != "") {
+          socket.emit("send msg", config.pseudo + " : " + msg, config.codeJ.toLowerCase());
+          $("#msg").val("");
+        }
+      }
+      $("body").keypress((data) => {
+        if (data.key == "Enter")
+          suivant3();
+      });
+      $("#btn-send_msg").on("click",suivant3);
       break;
     case ecran.new_question:
       if(config.mode_de_jeu == "Triche") {
@@ -314,6 +329,7 @@ function refresh_screen() {
           ecran_actuel = ecran.evaluation;
           refresh_screen();
         } else {
+          console.log(data);
           socket.emit("pose question", (data));
           ecran_actuel = ecran.reponse;
           refresh_screen();
@@ -493,9 +509,10 @@ function sendToTchat(msg, tour) {
 
 function refreshTchat() {
   $("#tchat").empty();
-  for(let i=tchat.length-1; i>=0; i--) {
+  for(let i=0; i<=tchat.length-1; i++) {
     $("#tchat").append(tchat[i]);
   }
+  document.getElementById("tchat").scrollTo(0,document.getElementById("tchat").scrollHeight);
 }
 
 window.onload = () => {
