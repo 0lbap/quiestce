@@ -59,9 +59,9 @@ function afficherEcran(nomEcran) {
       html += "<h1>Nouvelle partie</h1>";
       html += '<button id="btn-newgame_solo">Solo</button>';
       html += '<span class="spacer"></span>';
-      html += '<button id="btn-newgame_ordi">Contre l\'ordi <span class="text-red">(WIP)</span></button>';
+      html += '<button id="btn-newgame_ordi">Contre l\'ordi</button>';
       html += '<span class="spacer"></span>';
-      html += '<button id="btn-newgame_multi">Multijoueur <span class="text-red">(WIP)</span></button>';
+      html += '<button id="btn-newgame_multi">Multijoueur</button>';
       html += '<br><br>';
       html += '<button id="btn-retour">↩ Retour</button>';
       $("#dialog").append(html);
@@ -135,7 +135,7 @@ function afficherEcran(nomEcran) {
       break;
     case ecran.join_game:
       html += "<h1>Entrez le code de la partie</h1>";
-      html += '<input type="text" minlength="4" maxlength="4" placeholder="XXXX">';
+      html += '<input id="codePartie" type="text" minlength="4" maxlength="4" placeholder="XXXX">';
       html += '<span class="spacer"></span>';
       html += '<button id="btn-join">Rejoindre</button>';
       html += '<br><br>';
@@ -166,8 +166,11 @@ function afficherEcran(nomEcran) {
       html += '<br>';
       html += '<a href="#" id="btn-abandonner" class="text-red">Abandonner</a>';
       html += "<br><br>";
-      html += '<h1>Historique</h1>';
+      html += '<h1>Tchat</h1>';
       html += '<div id="tchat"></div>';
+      html += '<input type="text" id="msg" placeholder="Votre message..." maxlength="75">';
+      html += '<span class="spacer">';
+      html += '<button id="btn-send_msg">Envoyer</button>';
       html += "<br><br>";
       html += '<div id="sablier"><img src="https://cdn-icons-png.flaticon.com/512/3208/3208749.png"></img></div>';
       html += "</div>";
