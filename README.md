@@ -4,8 +4,8 @@
 [![Made_with](https://img.shields.io/badge/Made_with-Javascript,Node.js-blue.svg)](https://shields.io/)
 [![Version](https://img.shields.io/badge/Version-1.1-blue.svg)](https://shields.io/)
 [![Mode_Solo](https://img.shields.io/badge/Mode_Solo-OK-success.svg)](https://shields.io/)
-[![Mode_Ordi](https://img.shields.io/badge/Mode_Ordi-WIP-yellow.svg)](https://shields.io/)
-[![Mode_Multijoueur](https://img.shields.io/badge/Mode_Multijoueur-WIP-yellow.svg)](https://shields.io/)
+[![Mode_Ordi](https://img.shields.io/badge/Mode_Ordi-OK-success.svg)](https://shields.io/)
+[![Mode_Multijoueur](https://img.shields.io/badge/Mode_Multijoueur-OK-success.svg)](https://shields.io/)
 [![Magasin](https://img.shields.io/badge/Magasin-OK-success.svg)](https://shields.io/)
 [![Générateur](https://img.shields.io/badge/Générateur-OK-success.svg)](https://shields.io/)
 
